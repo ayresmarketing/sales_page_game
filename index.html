@@ -1,711 +1,1095 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head><style>
+@keyframes rotate-3d-coin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+.coin-3d {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+  border-radius: 50%;
+  position: relative;
+  animation: rotate-3d-coin 3s linear infinite;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coin-3d::after {
+  content: '$';
+  color: #5d4037;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+}
+</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.-inset-1{inset:-0.25rem}.-inset-4{inset:-1rem}.inset-0{inset:0px}.right-6{right:1.5rem}.top-0{top:0px}.top-6{top:1.5rem}.-bottom-6{bottom:-1.5rem}.-left-12{left:-3rem}.-right-8{right:-2rem}.-top-4{top:-1rem}.left-1\/2{left:50%}.right-0{right:0px}.right-4{right:1rem}.top-1\/2{top:50%}.z-10{z-index:10}.z-50{z-index:50}.-z-10{z-index:-10}.z-20{z-index:20}.col-span-12{grid-column:span 12 / span 12}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-1{margin-bottom:0.25rem}.-mr-16{margin-right:-4rem}.-mt-16{margin-top:-4rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-24{margin-bottom:6rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mt-10{margin-top:2.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1 / 1}.aspect-video{aspect-ratio:16 / 9}.h-\[400px\]{height:400px}.h-1{height:0.25rem}.h-1\/2{height:50%}.h-2{height:0.5rem}.h-24{height:6rem}.h-3{height:0.75rem}.h-3\/4{height:75%}.h-32{height:8rem}.h-6{height:1.5rem}.h-\[800px\]{height:800px}.h-full{height:100%}.min-h-\[400px\]{min-height:400px}.min-h-\[884px\]{min-height:884px}.w-full{width:100%}.w-2{width:0.5rem}.w-24{width:6rem}.w-3\/4{width:75%}.w-32{width:8rem}.w-\[65\%\]{width:65%}.w-\[800px\]{width:800px}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-\[1440px\]{max-width:1440px}.max-w-md{max-width:28rem}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-\[pulse_2s_infinite\]{animation:pulse 2s infinite}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-1{gap:0.25rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[1\.5rem\]{border-radius:1.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-\[3rem\]{border-radius:3rem}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-cyan-500\/20{border-color:rgb(6 182 212 / 0.2)}.border-cyan-500\/30{border-color:rgb(6 182 212 / 0.3)}.border-primary\/30{border-color:rgb(143 245 255 / 0.3)}.border-primary\/50{border-color:rgb(143 245 255 / 0.5)}.border-cyan-400\/50{border-color:rgb(34 211 238 / 0.5)}.border-cyan-900\/30{border-color:rgb(22 78 99 / 0.3)}.border-error\/20{border-color:rgb(255 113 108 / 0.2)}.border-primary{--tw-border-opacity:1;border-color:rgb(143 245 255 / var(--tw-border-opacity, 1))}.border-primary-fixed\/20{border-color:rgb(0 238 252 / 0.2)}.border-primary\/10{border-color:rgb(143 245 255 / 0.1)}.border-primary\/20{border-color:rgb(143 245 255 / 0.2)}.border-secondary\/20{border-color:rgb(162 243 31 / 0.2)}.border-secondary\/30{border-color:rgb(162 243 31 / 0.3)}.border-secondary\/50{border-color:rgb(162 243 31 / 0.5)}.border-tertiary\/20{border-color:rgb(216 115 255 / 0.2)}.border-tertiary\/50{border-color:rgb(216 115 255 / 0.5)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-\[\#0f1117\]{--tw-bg-opacity:1;background-color:rgb(15 17 23 / var(--tw-bg-opacity, 1))}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(0 238 252 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(143 245 255 / 0.1)}.bg-zinc-950\/40{background-color:rgb(9 9 11 / 0.4)}.bg-\[\#1a1c23\]{--tw-bg-opacity:1;background-color:rgb(26 28 35 / var(--tw-bg-opacity, 1))}.bg-cyan-500\/10{background-color:rgb(6 182 212 / 0.1)}.bg-cyan-500\/20{background-color:rgb(6 182 212 / 0.2)}.bg-cyan-500\/50{background-color:rgb(6 182 212 / 0.5)}.bg-error{--tw-bg-opacity:1;background-color:rgb(255 113 108 / var(--tw-bg-opacity, 1))}.bg-error\/10{background-color:rgb(255 113 108 / 0.1)}.bg-primary{--tw-bg-opacity:1;background-color:rgb(143 245 255 / var(--tw-bg-opacity, 1))}.bg-primary-fixed\/5{background-color:rgb(0 238 252 / 0.05)}.bg-primary\/20{background-color:rgb(143 245 255 / 0.2)}.bg-secondary{--tw-bg-opacity:1;background-color:rgb(162 243 31 / var(--tw-bg-opacity, 1))}.bg-secondary\/10{background-color:rgb(162 243 31 / 0.1)}.bg-secondary\/5{background-color:rgb(162 243 31 / 0.05)}.bg-slate-900\/40{background-color:rgb(15 23 42 / 0.4)}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(25 25 31 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(31 31 38 / var(--tw-bg-opacity, 1))}.bg-surface-container-highest{--tw-bg-opacity:1;background-color:rgb(37 37 44 / var(--tw-bg-opacity, 1))}.bg-surface-container-highest\/50{background-color:rgb(37 37 44 / 0.5)}.bg-surface-container-low\/50{background-color:rgb(19 19 24 / 0.5)}.bg-tertiary{--tw-bg-opacity:1;background-color:rgb(216 115 255 / var(--tw-bg-opacity, 1))}.bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.bg-zinc-950{--tw-bg-opacity:1;background-color:rgb(9 9 11 / var(--tw-bg-opacity, 1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-\[\#0e0e13\]{--tw-gradient-from:#0e0e13 var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 14 19 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-primary{--tw-gradient-from:#8ff5ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(143 245 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-cyan-500\/5{--tw-gradient-to:rgb(6 182 212 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(6 182 212 / 0.05) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-tertiary{--tw-gradient-to:#d873ff var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{object-fit:cover}.p-6{padding:1.5rem}.p-12{padding:3rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-12{padding-left:3rem;padding-right:3rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-24{padding-top:6rem}.text-left{text-align:left}.text-center{text-align:center}.font-body{font-family:Manrope}.font-headline{font-family:Space Grotesk}.font-label{font-family:Space Grotesk}.text-2xl{font-size:1.5rem;line-height:2rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[10px\]{font-size:10px}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-6xl{font-size:3.75rem;line-height:1}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[1\.1\]{line-height:1.1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.tracking-\[0\.1em\]{letter-spacing:0.1em}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-on-surface{--tw-text-opacity:1;color:rgb(248 245 253 / var(--tw-text-opacity, 1))}.text-\[\#00F0FF\]{--tw-text-opacity:1;color:rgb(0 240 255 / var(--tw-text-opacity, 1))}.text-cyan-400{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.text-on-primary-container{--tw-text-opacity:1;color:rgb(0 83 89 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(172 170 177 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(143 245 255 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-primary\/60{color:rgb(143 245 255 / 0.6)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(255 113 108 / var(--tw-text-opacity, 1))}.text-error\/40{color:rgb(255 113 108 / 0.4)}.text-primary-container{--tw-text-opacity:1;color:rgb(0 238 252 / var(--tw-text-opacity, 1))}.text-primary-dim{--tw-text-opacity:1;color:rgb(0 222 236 / var(--tw-text-opacity, 1))}.text-primary-fixed{--tw-text-opacity:1;color:rgb(0 238 252 / var(--tw-text-opacity, 1))}.text-primary-fixed\/60{color:rgb(0 238 252 / 0.6)}.text-primary\/40{color:rgb(143 245 255 / 0.4)}.text-secondary{--tw-text-opacity:1;color:rgb(162 243 31 / var(--tw-text-opacity, 1))}.text-secondary\/40{color:rgb(162 243 31 / 0.4)}.text-tertiary{--tw-text-opacity:1;color:rgb(216 115 255 / var(--tw-text-opacity, 1))}.text-tertiary\/40{color:rgb(216 115 255 / 0.4)}.text-transparent{color:transparent}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.opacity-20{opacity:0.2}.opacity-30{opacity:0.3}.opacity-50{opacity:0.5}.opacity-60{opacity:0.6}.opacity-80{opacity:0.8}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_15px_rgba\(0\2c 240\2c 255\2c 0\.3\)\]{--tw-shadow:0 0 15px rgba(0,240,255,0.3);--tw-shadow-colored:0 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_30px_rgba\(0\2c 0\2c 0\2c 0\.5\)\]{--tw-shadow:0 4px 30px rgba(0,0,0,0.5);--tw-shadow-colored:0 4px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_10px_\#8ff5ff\]{--tw-shadow:0 0 10px #8ff5ff;--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_20px_rgba\(0\2c 240\2c 255\2c 0\.3\)\]{--tw-shadow:0 0 20px rgba(0,240,255,0.3);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_30px_rgba\(0\2c 240\2c 255\2c 0\.3\)\]{--tw-shadow:0 0 30px rgba(0,240,255,0.3);--tw-shadow-colored:0 0 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_50px_rgba\(0\2c 240\2c 255\2c 0\.15\)\]{--tw-shadow:0 0 50px rgba(0,240,255,0.15);--tw-shadow-colored:0 0 50px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_60px_rgba\(0\2c 238\2c 252\2c 0\.1\)\]{--tw-shadow:0 0 60px rgba(0,238,252,0.1);--tw-shadow-colored:0 0 60px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur{--tw-blur:blur(8px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_0_15px_rgba\(0\2c 240\2c 255\2c 0\.8\)\]{--tw-drop-shadow:drop-shadow(0 0 15px rgba(0,240,255,0.8));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_0_8px_rgba\(0\2c 240\2c 255\2c 0\.5\)\]{--tw-drop-shadow:drop-shadow(0 0 8px rgba(0,240,255,0.5));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale-\[0\.3\]{--tw-grayscale:grayscale(0.3);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale-\[0\.5\]{--tw-grayscale:grayscale(0.5);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.duration-300{transition-duration:300ms}.duration-700{transition-duration:700ms}.selection\:bg-primary *::selection{--tw-bg-opacity:1;background-color:rgb(143 245 255 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-container *::selection{--tw-text-opacity:1;color:rgb(0 83 89 / var(--tw-text-opacity, 1))}.selection\:bg-primary::selection{--tw-bg-opacity:1;background-color:rgb(143 245 255 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-container::selection{--tw-text-opacity:1;color:rgb(0 83 89 / var(--tw-text-opacity, 1))}.hover\:scale-95:hover{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary\/40:hover{border-color:rgb(143 245 255 / 0.4)}.hover\:bg-primary\/10:hover{background-color:rgb(143 245 255 / 0.1)}.hover\:text-cyan-200:hover{--tw-text-opacity:1;color:rgb(165 243 252 / var(--tw-text-opacity, 1))}.hover\:text-cyan-400:hover{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.hover\:shadow-\[0_0_30px_rgba\(0\2c 240\2c 255\2c 0\.6\)\]:hover{--tw-shadow:0 0 30px rgba(0,240,255,0.6);--tw-shadow-colored:0 0 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.group:hover .group-hover\:scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary\/40{background-color:rgb(143 245 255 / 0.4)}.group:hover .group-hover\:text-primary{--tw-text-opacity:1;color:rgb(143 245 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:grayscale-0{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}@media (min-width: 768px){.md\:col-span-4{grid-column:span 4 / span 4}.md\:col-span-5{grid-column:span 5 / span 5}.md\:col-span-7{grid-column:span 7 / span 7}.md\:inline{display:inline}.md\:flex{display:flex}.md\:aspect-square{aspect-ratio:1 / 1}.md\:aspect-video{aspect-ratio:16 / 9}.md\:w-1\/2{width:50%}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:flex-row-reverse{flex-direction:row-reverse}.md\:p-20{padding:5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:col-start-1{grid-column-start:1}.lg\:col-end-2{grid-column-end:2}.lg\:aspect-square{aspect-ratio:1 / 1}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-24{padding-left:6rem;padding-right:6rem}}</style><style>
+@keyframes glitch {
+  0% { transform: translate(0); text-shadow: -2px 2px 0px rgba(255, 49, 49, 0.3), 2px -2px 0px rgba(0, 240, 255, 0.3); opacity: 1; }
+  2% { transform: translate(-2px, 1px); opacity: 0.8; }
+  4% { transform: translate(2px, -1px); }
+  6% { transform: translate(0); opacity: 1; }
+  80% { transform: translate(0); opacity: 1; }
+  82% { transform: translate(3px, 0px); text-shadow: 4px 0px 0px rgba(255, 49, 49, 0.4); }
+  84% { transform: translate(-3px, 0px); text-shadow: -4px 0px 0px rgba(0, 240, 255, 0.4); }
+  86% { transform: translate(0); }
+}
+.glitch-text {
+  animation: glitch 4s infinite linear alternate-reverse;
+  display: inline-block;
+}
+</style><style>
+  @keyframes footprint-fade {
+    0%, 100% { opacity: 0; filter: drop-shadow(0 0 0px #00F0FF); }
+    20%, 80% { opacity: 0.15; filter: drop-shadow(0 0 8px #00F0FF); }
+  }
+  .footprint {
+    position: absolute;
+    width: 24px;
+    height: 12px;
+    background: #00F0FF;
+    border-radius: 40% 40% 30% 30%;
+    opacity: 0;
+    pointer-events: none;
+    animation: footprint-fade 4s infinite;
+  }
+  .footprint::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 2px;
+    width: 20px;
+    height: 10px;
+    background: #00F0FF;
+    border-radius: 50%;
+  }
+  .footprint-pair-left { transform: rotate(-15deg); }
+  .footprint-pair-right { transform: rotate(15deg); }
+</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.inset-3{inset:0.75rem}.-inset-1{inset:-0.25rem}.-inset-4{inset:-1rem}.-bottom-20{bottom:-5rem}.-left-24{left:-6rem}.-left-36{left:-9rem}.-right-28{right:-7rem}.-right-32{right:-8rem}.bottom-20{bottom:5rem}.left-0{left:0px}.left-1\/2{left:50%}.top-0{top:0px}.top-1\/2{top:50%}.top-20{top:5rem}.top-40{top:10rem}.top-6{top:1.5rem}.-bottom-6{bottom:-1.5rem}.-left-12{left:-3rem}.-right-8{right:-2rem}.-top-4{top:-1rem}.right-0{right:0px}.right-4{right:1rem}.z-10{z-index:10}.z-50{z-index:50}.-z-10{z-index:-10}.z-0{z-index:0}.z-20{z-index:20}.col-span-12{grid-column:span 12 / span 12}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.-mr-16{margin-right:-4rem}.-mt-16{margin-top:-4rem}.mb-1{margin-bottom:0.25rem}.mb-20{margin-bottom:5rem}.mb-24{margin-bottom:6rem}.mb-3{margin-bottom:0.75rem}.ml-4{margin-left:1rem}.mt-10{margin-top:2.5rem}.mt-16{margin-top:4rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1 / 1}.aspect-video{aspect-ratio:16 / 9}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-6{height:1.5rem}.h-\[600px\]{height:600px}.h-\[700px\]{height:700px}.h-full{height:100%}.h-1\/2{height:50%}.h-24{height:6rem}.h-3{height:0.75rem}.h-3\/4{height:75%}.h-32{height:8rem}.h-\[800px\]{height:800px}.min-h-\[700px\]{min-height:700px}.min-h-\[884px\]{min-height:884px}.w-10{width:2.5rem}.w-16{width:4rem}.w-2{width:0.5rem}.w-2\/3{width:66.666667%}.w-20{width:5rem}.w-8{width:2rem}.w-\[300px\]{width:300px}.w-full{width:100%}.w-24{width:6rem}.w-3\/4{width:75%}.w-32{width:8rem}.w-\[65\%\]{width:65%}.w-\[800px\]{width:800px}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-\[1440px\]{max-width:1440px}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.animate-\[float-up-fade_5s_infinite\]{animation:float-up-fade 5s infinite}.animate-\[scan_4s_linear_infinite\]{animation:scan 4s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-\[spin_8s_linear_infinite\]{animation:spin 8s linear infinite}@keyframes pulse{50%{opacity:.5}}.animate-\[pulse_2s_infinite\]{animation:pulse 2s infinite}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-1{gap:0.25rem}.gap-16{gap:4rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-visible{overflow:visible}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-\[2\.5rem\]{border-radius:2.5rem}.rounded-\[3rem\]{border-radius:3rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[1\.5rem\]{border-radius:1.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-2{border-width:2px}.border-\[6px\]{border-width:6px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-cyan-500\/20{border-color:rgb(6 182 212 / 0.2)}.border-primary\/20{border-color:rgb(143 245 255 / 0.2)}.border-primary\/30{border-color:rgb(143 245 255 / 0.3)}.border-primary\/40{border-color:rgb(143 245 255 / 0.4)}.border-zinc-800{--tw-border-opacity:1;border-color:rgb(39 39 42 / var(--tw-border-opacity, 1))}.border-cyan-400\/50{border-color:rgb(34 211 238 / 0.5)}.border-cyan-500\/30{border-color:rgb(6 182 212 / 0.3)}.border-cyan-900\/30{border-color:rgb(22 78 99 / 0.3)}.border-error\/20{border-color:rgb(255 113 108 / 0.2)}.border-primary{--tw-border-opacity:1;border-color:rgb(143 245 255 / var(--tw-border-opacity, 1))}.border-primary-fixed\/20{border-color:rgb(0 238 252 / 0.2)}.border-primary\/10{border-color:rgb(143 245 255 / 0.1)}.border-primary\/50{border-color:rgb(143 245 255 / 0.5)}.border-secondary\/20{border-color:rgb(162 243 31 / 0.2)}.border-secondary\/30{border-color:rgb(162 243 31 / 0.3)}.border-secondary\/50{border-color:rgb(162 243 31 / 0.5)}.border-tertiary\/20{border-color:rgb(216 115 255 / 0.2)}.border-tertiary\/50{border-color:rgb(216 115 255 / 0.5)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-primary{--tw-bg-opacity:1;background-color:rgb(143 245 255 / var(--tw-bg-opacity, 1))}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(0 238 252 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(143 245 255 / 0.1)}.bg-primary\/20{background-color:rgb(143 245 255 / 0.2)}.bg-primary\/40{background-color:rgb(143 245 255 / 0.4)}.bg-zinc-800{--tw-bg-opacity:1;background-color:rgb(39 39 42 / var(--tw-bg-opacity, 1))}.bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.bg-zinc-950{--tw-bg-opacity:1;background-color:rgb(9 9 11 / var(--tw-bg-opacity, 1))}.bg-zinc-950\/40{background-color:rgb(9 9 11 / 0.4)}.bg-cyan-500\/10{background-color:rgb(6 182 212 / 0.1)}.bg-cyan-500\/20{background-color:rgb(6 182 212 / 0.2)}.bg-cyan-500\/50{background-color:rgb(6 182 212 / 0.5)}.bg-error{--tw-bg-opacity:1;background-color:rgb(255 113 108 / var(--tw-bg-opacity, 1))}.bg-error\/10{background-color:rgb(255 113 108 / 0.1)}.bg-primary-fixed\/5{background-color:rgb(0 238 252 / 0.05)}.bg-secondary{--tw-bg-opacity:1;background-color:rgb(162 243 31 / var(--tw-bg-opacity, 1))}.bg-secondary\/10{background-color:rgb(162 243 31 / 0.1)}.bg-secondary\/5{background-color:rgb(162 243 31 / 0.05)}.bg-slate-900\/40{background-color:rgb(15 23 42 / 0.4)}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(25 25 31 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(31 31 38 / var(--tw-bg-opacity, 1))}.bg-surface-container-highest{--tw-bg-opacity:1;background-color:rgb(37 37 44 / var(--tw-bg-opacity, 1))}.bg-surface-container-highest\/50{background-color:rgb(37 37 44 / 0.5)}.bg-surface-container-low\/50{background-color:rgb(19 19 24 / 0.5)}.bg-tertiary{--tw-bg-opacity:1;background-color:rgb(216 115 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-primary\/10{--tw-gradient-from:rgb(143 245 255 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(143 245 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#0e0e13\]{--tw-gradient-from:#0e0e13 var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 14 19 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-primary{--tw-gradient-from:#8ff5ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(143 245 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-cyan-500\/5{--tw-gradient-to:rgb(6 182 212 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(6 182 212 / 0.05) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-primary\/5{--tw-gradient-to:rgb(143 245 255 / 0.05) var(--tw-gradient-to-position)}.to-tertiary{--tw-gradient-to:#d873ff var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{object-fit:cover}.p-6{padding:1.5rem}.p-12{padding:3rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-12{padding-left:3rem;padding-right:3rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.px-16{padding-left:4rem;padding-right:4rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-24{padding-bottom:6rem}.pt-24{padding-top:6rem}.text-left{text-align:left}.text-center{text-align:center}.font-body{font-family:Manrope}.font-headline{font-family:Space Grotesk}.font-label{font-family:Space Grotesk}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-6xl{font-size:3.75rem;line-height:1}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[1\.1\]{line-height:1.1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.tracking-\[0\.1em\]{letter-spacing:0.1em}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-on-surface{--tw-text-opacity:1;color:rgb(248 245 253 / var(--tw-text-opacity, 1))}.text-\[\#00F0FF\]{--tw-text-opacity:1;color:rgb(0 240 255 / var(--tw-text-opacity, 1))}.text-cyan-400{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.text-on-primary-container{--tw-text-opacity:1;color:rgb(0 83 89 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(172 170 177 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(143 245 255 / var(--tw-text-opacity, 1))}.text-primary\/60{color:rgb(143 245 255 / 0.6)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(255 113 108 / var(--tw-text-opacity, 1))}.text-error\/40{color:rgb(255 113 108 / 0.4)}.text-primary-container{--tw-text-opacity:1;color:rgb(0 238 252 / var(--tw-text-opacity, 1))}.text-primary-dim{--tw-text-opacity:1;color:rgb(0 222 236 / var(--tw-text-opacity, 1))}.text-primary-fixed{--tw-text-opacity:1;color:rgb(0 238 252 / var(--tw-text-opacity, 1))}.text-primary-fixed\/60{color:rgb(0 238 252 / 0.6)}.text-primary\/40{color:rgb(143 245 255 / 0.4)}.text-secondary{--tw-text-opacity:1;color:rgb(162 243 31 / var(--tw-text-opacity, 1))}.text-secondary\/40{color:rgb(162 243 31 / 0.4)}.text-tertiary{--tw-text-opacity:1;color:rgb(216 115 255 / var(--tw-text-opacity, 1))}.text-tertiary\/40{color:rgb(216 115 255 / 0.4)}.text-transparent{color:transparent}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-40{opacity:0.4}.opacity-20{opacity:0.2}.opacity-30{opacity:0.3}.opacity-50{opacity:0.5}.opacity-60{opacity:0.6}.opacity-80{opacity:0.8}.shadow-\[0_0_10px_\#00F0FF\]{--tw-shadow:0 0 10px #00F0FF;--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_25px_rgba\(0\2c 240\2c 255\2c 0\.2\)\]{--tw-shadow:0 0 25px rgba(0,240,255,0.2);--tw-shadow-colored:0 0 25px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_80px_rgba\(0\2c 0\2c 0\2c 0\.9\)\2c 0_0_20px_rgba\(0\2c 240\2c 255\2c 0\.2\)\]{--tw-shadow:0 0 80px rgba(0,0,0,0.9),0 0 20px rgba(0,240,255,0.2);--tw-shadow-colored:0 0 80px var(--tw-shadow-color), 0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_30px_rgba\(0\2c 0\2c 0\2c 0\.5\)\]{--tw-shadow:0 4px 30px rgba(0,0,0,0.5);--tw-shadow-colored:0 4px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_10px_\#8ff5ff\]{--tw-shadow:0 0 10px #8ff5ff;--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_20px_rgba\(0\2c 240\2c 255\2c 0\.3\)\]{--tw-shadow:0 0 20px rgba(0,240,255,0.3);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_30px_rgba\(0\2c 240\2c 255\2c 0\.3\)\]{--tw-shadow:0 0 30px rgba(0,240,255,0.3);--tw-shadow-colored:0 0 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_50px_rgba\(0\2c 240\2c 255\2c 0\.15\)\]{--tw-shadow:0 0 50px rgba(0,240,255,0.15);--tw-shadow-colored:0 0 50px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_60px_rgba\(0\2c 238\2c 252\2c 0\.1\)\]{--tw-shadow:0 0 60px rgba(0,238,252,0.1);--tw-shadow-colored:0 0 60px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-sm{--tw-blur:blur(4px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur{--tw-blur:blur(8px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_0_15px_rgba\(0\2c 240\2c 255\2c 0\.8\)\]{--tw-drop-shadow:drop-shadow(0 0 15px rgba(0,240,255,0.8));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_0_8px_rgba\(0\2c 240\2c 255\2c 0\.5\)\]{--tw-drop-shadow:drop-shadow(0 0 8px rgba(0,240,255,0.5));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale-\[0\.3\]{--tw-grayscale:grayscale(0.3);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale-\[0\.5\]{--tw-grayscale:grayscale(0.5);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-700{transition-duration:700ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.selection\:bg-primary *::selection{--tw-bg-opacity:1;background-color:rgb(143 245 255 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-container *::selection{--tw-text-opacity:1;color:rgb(0 83 89 / var(--tw-text-opacity, 1))}.selection\:bg-primary::selection{--tw-bg-opacity:1;background-color:rgb(143 245 255 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-container::selection{--tw-text-opacity:1;color:rgb(0 83 89 / var(--tw-text-opacity, 1))}.hover\:scale-95:hover{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary\/40:hover{border-color:rgb(143 245 255 / 0.4)}.hover\:text-cyan-200:hover{--tw-text-opacity:1;color:rgb(165 243 252 / var(--tw-text-opacity, 1))}.hover\:text-cyan-400:hover{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.hover\:shadow-\[0_0_30px_rgba\(0\2c 240\2c 255\2c 0\.6\)\]:hover{--tw-shadow:0 0 30px rgba(0,240,255,0.6);--tw-shadow-colored:0 0 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-\[0_0_40px_rgba\(0\2c 240\2c 255\2c 0\.6\)\]:hover{--tw-shadow:0 0 40px rgba(0,240,255,0.6);--tw-shadow-colored:0 0 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.group:hover .group-hover\:scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary\/40{background-color:rgb(143 245 255 / 0.4)}.group:hover .group-hover\:text-primary{--tw-text-opacity:1;color:rgb(143 245 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:grayscale-0{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}@media (min-width: 768px){.md\:col-span-4{grid-column:span 4 / span 4}.md\:col-span-5{grid-column:span 5 / span 5}.md\:col-span-7{grid-column:span 7 / span 7}.md\:inline{display:inline}.md\:flex{display:flex}.md\:aspect-square{aspect-ratio:1 / 1}.md\:aspect-video{aspect-ratio:16 / 9}.md\:w-1\/2{width:50%}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:flex-row-reverse{flex-direction:row-reverse}.md\:p-20{padding:5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:col-start-1{grid-column-start:1}.lg\:col-end-2{grid-column-end:2}.lg\:aspect-square{aspect-ratio:1 / 1}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-24{padding-left:6rem;padding-right:6rem}}</style></head><body class="font-body text-on-surface selection:bg-primary selection:text-on-primary-container" data-mode="connect">```html
 
-<html class="dark" lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SISTEMA_EVOLUÇÃO | PROTOCOLO_FINAL</title>
+
+
+    <meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>CYBERLEVEL VELOCITY - Protocolo de Elite</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "tertiary-container": "#bf04ff",
-                        "surface-bright": "#2c2b33",
-                        "on-secondary-fixed": "#294300",
-                        "error": "#ff716c",
-                        "surface-container-high": "#1f1f26",
-                        "on-primary-fixed": "#003f43",
-                        "surface-container-highest": "#25252c",
-                        "surface-container": "#19191f",
-                        "secondary": "#a2f31f",
-                        "on-tertiary-container": "#000000",
-                        "secondary-dim": "#95e400",
-                        "error-container": "#9f0519",
-                        "on-error-container": "#ffa8a3",
-                        "error-dim": "#d7383b",
-                        "on-secondary": "#365700",
-                        "surface": "#0e0e13",
-                        "background": "#0e0e13",
-                        "primary": "#8ff5ff",
-                        "on-secondary-container": "#ebffcb",
-                        "secondary-container": "#426900",
-                        "primary-dim": "#00deec",
-                        "inverse-on-surface": "#55545a",
-                        "outline": "#76747b",
-                        "surface-variant": "#25252c",
-                        "secondary-fixed": "#a2f31f",
-                        "on-primary-container": "#005359",
-                        "primary-container": "#00eefc",
-                        "surface-tint": "#8ff5ff",
-                        "surface-dim": "#0e0e13",
-                        "tertiary-fixed-dim": "#db7cff",
-                        "on-error": "#490006",
-                        "on-secondary-fixed-variant": "#3d6200",
-                        "on-primary-fixed-variant": "#005e64",
-                        "tertiary": "#d873ff",
-                        "tertiary-dim": "#bc00fb",
-                        "primary-fixed-dim": "#00deec",
-                        "surface-container-low": "#131318",
-                        "tertiary-fixed": "#e291ff",
-                        "outline-variant": "#48474d",
-                        "on-tertiary": "#39004f",
-                        "on-background": "#f8f5fd",
-                        "surface-container-lowest": "#000000",
-                        "secondary-fixed-dim": "#95e400",
-                        "on-tertiary-fixed-variant": "#600082",
-                        "inverse-surface": "#fbf8ff",
-                        "primary-fixed": "#00eefc",
-                        "on-primary": "#005d63",
-                        "on-surface-variant": "#acaab1",
-                        "on-surface": "#f8f5fd",
-                        "on-tertiary-fixed": "#2d003f",
-                        "inverse-primary": "#006a71"
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Manrope"],
-                        "label": ["Space Grotesk"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#fbf8ff",
+              "on-tertiary-container": "#000000",
+              "primary-fixed": "#00eefc",
+              "surface-container-low": "#131318",
+              "secondary-fixed-dim": "#95e400",
+              "secondary-fixed": "#a2f31f",
+              "on-secondary": "#365700",
+              "primary-dim": "#00deec",
+              "secondary": "#a2f31f",
+              "on-surface": "#f8f5fd",
+              "on-primary-container": "#005359",
+              "outline-variant": "#48474d",
+              "on-primary-fixed": "#003f43",
+              "on-primary": "#005d63",
+              "tertiary-fixed": "#e291ff",
+              "surface-container-highest": "#25252c",
+              "on-primary-fixed-variant": "#005e64",
+              "surface-container-high": "#1f1f26",
+              "on-tertiary-fixed-variant": "#600082",
+              "error-container": "#9f0519",
+              "error-dim": "#d7383b",
+              "surface-container": "#19191f",
+              "outline": "#76747b",
+              "surface-bright": "#2c2b33",
+              "on-secondary-fixed": "#294300",
+              "surface-dim": "#0e0e13",
+              "tertiary": "#d873ff",
+              "surface-variant": "#25252c",
+              "on-secondary-container": "#ebffcb",
+              "on-error-container": "#ffa8a3",
+              "primary-fixed-dim": "#00deec",
+              "on-error": "#490006",
+              "on-surface-variant": "#acaab1",
+              "background": "#0e0e13",
+              "on-tertiary": "#39004f",
+              "tertiary-fixed-dim": "#db7cff",
+              "surface-tint": "#8ff5ff",
+              "primary-container": "#00eefc",
+              "tertiary-dim": "#bc00fb",
+              "primary": "#8ff5ff",
+              "on-secondary-fixed-variant": "#3d6200",
+              "inverse-on-surface": "#55545a",
+              "secondary-dim": "#95e400",
+              "error": "#ff716c",
+              "surface": "#0e0e13",
+              "on-tertiary-fixed": "#2d003f",
+              "inverse-primary": "#006a71",
+              "tertiary-container": "#bf04ff",
+              "surface-container-lowest": "#000000",
+              "on-background": "#f8f5fd",
+              "secondary-container": "#426900"
             },
-        }
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
     </script>
 <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        
-        .glow-primary { 
-            box-shadow: 0 0 20px rgba(143, 245, 255, 0.2); 
-            animation: breathe-glow 4s infinite ease-in-out;
-        }
-        
-        .text-glow { text-shadow: 0 0 10px rgba(143, 245, 255, 0.5); }
-        
-        @keyframes breathe-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(143, 245, 255, 0.15); }
-            50% { box-shadow: 0 0 30px rgba(143, 245, 255, 0.35); }
+        body {
+            background-color: #0e0e13;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .button-3d { 
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: perspective(1000px) translateZ(0);
-            box-shadow: 0 4px 0px #005d63;
-        }
-        .button-3d:active {
-            transform: perspective(1000px) translateZ(0) translateY(4px);
-            box-shadow: 0 0 0px #005d63;
-        }
-
-        .cta-pulse {
-            animation: ctaPulse 2s infinite;
-        }
-        @keyframes ctaPulse {
-            0% { box-shadow: 0 0 0 0 rgba(143, 245, 255, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(143, 245, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(143, 245, 255, 0); }
-        }
-
-        .glass-panel {
-            background: rgba(31, 31, 38, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(143, 245, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: breathe-border 6s infinite ease-in-out;
-        }
-        
-        @keyframes breathe-border {
-            0%, 100% { border-color: rgba(143, 245, 255, 0.1); }
-            50% { border-color: rgba(143, 245, 255, 0.25); }
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(143, 245, 255, 0.4) !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(143, 245, 255, 0.1);
-            animation: none;
-        }
-
-        .progress-fill-animate {
-            width: 0%;
-            transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        .section-visible .progress-fill-animate {
-            width: var(--progress-width);
-        }
-
-        .progress-shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite linear;
-        }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-
-        /* Scanline Effect */
-        .scanlines {
+        .coin-rain-container {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-            background-size: 100% 4px, 3px 100%;
-            pointer-events: none;
-            z-index: 100;
-            opacity: 0.2;
-        }
-
-        /* Particles / Floating elements */
-        .floating-element {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.15;
-            animation: float-rotate 20s infinite ease-in-out;
-        }
-        @keyframes float-rotate {
-            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-            25% { transform: translateY(-40px) translateX(20px) rotate(90deg); }
-            50% { transform: translateY(-20px) translateX(-20px) rotate(180deg); }
-            75% { transform: translateY(30px) translateX(10px) rotate(270deg); }
-        }
-
-        /* Data Rain / Stream Effect */
-        .data-rain {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
-            opacity: 0.1;
-        }
-        .data-stream {
-            position: absolute;
-            width: 1px;
-            height: 100px;
-            background: linear-gradient(to bottom, transparent, #8ff5ff, transparent);
-            animation: rain linear infinite;
-        }
-        @keyframes rain {
-            0% { transform: translateY(-120px); }
-            100% { transform: translateY(110vh); }
         }
 
-        /* Level Up Popup Animation */
-        @keyframes levelUpPopup {
-            0% { transform: translateY(20px) scale(0.5); opacity: 0; }
-            50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
-            100% { transform: translateY(-20px) scale(1); opacity: 0; }
-        }
-        .level-up-indicator {
+        .coin {
             position: absolute;
-            animation: levelUpPopup 2s infinite;
-            color: #a2f31f;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #a2f31f, #00eefc);
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: drop-shadow(0 0 8px rgba(162, 243, 31, 0.5));
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotateX(0deg) rotateY(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(110vh) rotateX(720deg) rotateY(360deg); opacity: 0; }
+        }
+
+        .glass-card {
+            background: rgba(31, 31, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 238, 252, 0.1);
+        }
+
+        .btn-3d {
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            position: relative;
+            box-shadow: 0 4px 0px #005d63;
+        }
+        .btn-3d:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px #005d63, 0 0 15px rgba(143, 245, 255, 0.4);
+        }
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0px #005d63;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 238, 252, 0.3);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: #00F0FF }
+        }
+
+        .typewriter-text {
+          display: inline-block;
+          overflow: hidden;
+          border-right: .15em solid #00F0FF;
+          white-space: nowrap;
+          margin: 0 auto;
+          letter-spacing: .05em;
+          animation: 
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+          vertical-align: bottom;
+        }
+
+        @keyframes glow-pulse {
+          0% { transform: scale(1); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+          50% { transform: scale(1.05); text-shadow: 0 0 30px rgba(0, 240, 255, 1), 0 0 50px rgba(0, 240, 255, 0.6); }
+          100% { transform: scale(1); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+        }
+        .animate-glow-pulse {
+          animation: glow-pulse 2s infinite ease-in-out;
+          display: inline-block;
+        }
+
+        /* HUD Animation Styles */
+        .hud-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 14, 19, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .neon-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+              linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), 
+              linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        .task-stack {
+            position: relative;
+            width: 320px;
+            height: 120px;
+        }
+
+        .task-card {
+            position: absolute;
+            width: 100%;
+            padding: 1.5rem;
+            background: rgba(31, 31, 38, 0.9);
+            border: 1px solid #00F0FF;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            z-index: 10;
+        }
+
+        .task-card.exit {
+            transform: translateY(-50px) scale(0.9);
+            opacity: 0;
+        }
+
+        .xp-particle {
+            position: absolute;
+            color: #00F0FF;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            pointer-events: none;
+            text-shadow: 0 0 10px #00F0FF;
+            z-index: 50;
+        }
+
+        @keyframes floatToXp {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--tw-tx), var(--tw-ty)) scale(0); opacity: 0; }
+        }
+
+        .xp-counter-hud {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid #00F0FF;
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            color: #00F0FF;
             font-family: 'Space Grotesk';
-            font-weight: 900;
-            pointer-events: none;
-            z-index: 20;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            transition: transform 0.2s;
+        }
+        
+        .xp-counter-hud.bump {
+            transform: scale(1.1);
         }
 
-        /* 3D Shape Classes */
-        .shape-3d {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            opacity: 0.1;
-            transform-style: preserve-3d;
-            animation: rotate3d 30s infinite linear;
-            pointer-events: none;
+        /* 3D Card Effects for Section 07 */
+        .card-3d-wrapper {
+            perspective: 1000px;
         }
-        @keyframes rotate3d {
-            from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        .card-3d {
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s;
+            transform-style: preserve-3d;
+        }
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 240, 255, 0.25);
+        }
+        .neon-glow-card {
+            position: relative;
+        }
+        .neon-glow-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #00F0FF, transparent, #a2f31f, transparent);
+            border-radius: 1.5rem;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .neon-glow-card:hover::before {
+            opacity: 1;
         }
     </style>
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = { threshold: 0.2 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('section-visible');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('section, .progress-container').forEach(el => observer.observe(el));
-
-            // Create data rain elements
-            const container = document.getElementById('data-rain-container');
-            for(let i=0; i<30; i++) {
-                const stream = document.createElement('div');
-                stream.className = 'data-stream';
-                stream.style.left = Math.random() * 100 + '%';
-                stream.style.animationDuration = (Math.random() * 2 + 1) + 's';
-                stream.style.animationDelay = Math.random() * 5 + 's';
-                stream.style.opacity = Math.random() * 0.5 + 0.1;
-                container.appendChild(stream);
-            }
-        });
-    </script>
-</head>
-<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary-container relative overflow-x-hidden">
-<div class="scanlines"></div>
-<div class="data-rain" id="data-rain-container"></div>
-<!-- Floating 3D Geometric Shapes Background -->
-<div class="floating-element top-1/4 left-10 text-primary">
-<span class="material-symbols-outlined text-7xl">deployed_code</span>
-</div>
-<div class="floating-element top-[15%] right-[10%] text-secondary" style="animation-delay: -5s;">
-<span class="material-symbols-outlined text-8xl">pentagon</span>
-</div>
-<div class="floating-element top-1/2 left-[-2%] text-tertiary" style="animation-delay: -8s;">
-<span class="material-symbols-outlined text-[120px]">view_in_ar</span>
-</div>
-<div class="floating-element bottom-[20%] right-[5%] text-primary" style="animation-delay: -12s;">
-<span class="material-symbols-outlined text-9xl">polyline</span>
-</div>
-<div class="floating-element top-3/4 left-1/4 text-secondary opacity-5" style="animation-delay: -3s;">
-<span class="material-symbols-outlined text-8xl">hexagon</span>
+<!-- Background Animation (3D Coin Rain Simulation) -->
+<div class="coin-rain-container">
+<div class="coin" style="left: 10%; animation-duration: 8s; animation-delay: 0s;"></div>
+<div class="coin" style="left: 25%; animation-duration: 12s; animation-delay: 2s;"></div>
+<div class="coin" style="left: 45%; animation-duration: 9s; animation-delay: 5s;"></div>
+<div class="coin" style="left: 65%; animation-duration: 15s; animation-delay: 1s;"></div>
+<div class="coin" style="left: 85%; animation-duration: 10s; animation-delay: 4s;"></div>
+<div class="coin" style="left: 15%; animation-duration: 11s; animation-delay: 7s;"></div>
+<div class="coin" style="left: 55%; animation-duration: 13s; animation-delay: 3s;"></div>
+<div class="coin" style="left: 75%; animation-duration: 10s; animation-delay: 8s;"></div>
 </div>
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-[#00F0FF]/15 shadow-[0_0_20px_rgba(0,240,255,0.1)]">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
-<div class="text-2xl font-black text-[#00F0FF] tracking-widest uppercase font-headline">SISTEMA_EVOLUÇÃO</div>
-<div class="hidden md:flex items-center space-x-8 font-headline font-bold uppercase tracking-tighter text-xs">
-<a class="text-[#00F0FF] border-b-2 border-[#00F0FF] pb-1" href="#">INÍCIO</a>
-<a class="text-gray-400 hover:text-[#00F0FF] transition-colors" href="#">MISSÕES</a>
-<a class="text-gray-400 hover:text-[#00F0FF] transition-colors" href="#">ARSENAL</a>
-<a class="text-gray-400 hover:text-[#00F0FF] transition-colors" href="#">RANKING</a>
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-12 py-4 max-w-[1440px] mx-auto">
+<div class="text-2xl font-black text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.5)] font-space-grotesk tracking-tighter uppercase">
+                Minha vida é um jogo</div>
+<div class="hidden md:flex gap-8 font-space-grotesk tracking-tighter uppercase text-sm">
+<a class="text-zinc-400 hover:text-cyan-200 transition-colors" href="#">SISTEMA</a>
+<a class="text-zinc-400 hover:text-cyan-200 transition-colors" href="#">ARSENAL</a>
+<a class="text-zinc-400 hover:text-cyan-200 transition-colors" href="#">RANKING</a>
+<a class="text-zinc-400 hover:text-cyan-200 transition-colors" href="#">SUPORTE</a>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-headline font-black uppercase tracking-widest text-sm hover:brightness-110 active:scale-95 transition-all cta-pulse glow-primary">LEVEL UP</button>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4">
+<span class="material-symbols-outlined text-zinc-400 cursor-pointer hover:text-cyan-400">notifications</span>
+<span class="material-symbols-outlined text-zinc-400 cursor-pointer hover:text-cyan-400">account_circle</span>
+</div>
+<button class="bg-primary-container text-on-primary-container font-bold px-6 py-2 rounded-lg text-xs tracking-widest uppercase hover:scale-95 transition-transform">
+                    UPGRADE AGORA
+                </button>
+</div>
 </div>
 </nav>
-<!-- Main Content -->
-<main class="flex flex-col items-center w-full overflow-x-hidden relative">
-<!-- SESSÃO 01: HERO -->
-<section class="min-h-screen flex flex-col items-center justify-center pt-32 pb-16 px-6 text-center max-w-5xl mx-auto relative">
-<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50"></div>
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary font-headline text-[10px] tracking-[0.3em] uppercase mb-8">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
-                Sistema Operacional de Realidade v4.2
-            </div>
-<h1 class="font-headline font-black text-5xl md:text-8xl text-on-surface leading-[0.9] tracking-tighter uppercase mb-8 text-glow">
-                Sua recompensa não precisa ser no videogame, <span class="text-primary-container italic">pode ser real.</span>
-</h1>
-<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
-                Transforme suas tarefas em um jogo, aumente sua produtividade, consistência, e conquiste seus sonhos no mundo real.
-            </p>
-<div class="relative">
-<div class="level-up-indicator -top-8 -right-8 text-sm">+250 XP</div>
-<button class="button-3d bg-primary-container text-on-primary-container px-12 py-6 rounded-xl font-headline font-black text-xl uppercase tracking-widest flex items-center gap-3 cta-pulse">
-                    Começar meu jogo
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
-</div>
-<!-- Floating 3D Element Decor -->
-<div class="mt-20 w-full max-w-4xl relative aspect-video rounded-2xl overflow-hidden glass-panel border border-primary/20 shadow-2xl">
-<img alt="Young person in a modern home office with glowing 3D holographic UI elements" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOsfLvalWB0UZPeLwev8ivuNT8v95G4KH6IDzM9FNHmm_FMhZXEGLn8V42F26bmIcaZQPw-KJ69eyblAK8pUsuXs_bHYC6ZMjnM9QoFRagWIFg0znzqJ_Xv0CZXokEEFs0e82JqnefGnrWxsssfr-2RfSsSrMMFIvCbtqjzdbcOl2frR1GcwN0DMOY3hOXRxwBzVqXZnwwo5abY2wdExzIa1EIxVm__1jzc5vIbUYZsH8LFlLxLticxjqCfin_aDk4r0koPQ0h9nA"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="grid grid-cols-3 gap-4 p-8 w-full max-w-2xl">
-<div class="h-24 glass-panel rounded-lg flex flex-col items-center justify-center gap-2 border-primary/30 card-hover">
-<span class="text-primary font-headline font-black text-2xl">LVL 42</span>
-<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden progress-container">
-<div class="h-full bg-primary progress-fill-animate" style="--progress-width: 66%;"></div>
-</div>
-</div>
-<div class="h-24 glass-panel rounded-lg flex flex-col items-center justify-center gap-2 border-secondary/30 card-hover">
-<span class="text-secondary font-headline font-black text-2xl">980 XP</span>
-<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden progress-container">
-<div class="h-full bg-secondary progress-fill-animate" style="--progress-width: 80%;"></div>
-</div>
-</div>
-<div class="h-24 glass-panel rounded-lg flex flex-col items-center justify-center gap-2 border-tertiary/30 card-hover">
-<span class="text-tertiary font-headline font-black text-2xl">12 MISSÕES</span>
-<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden progress-container">
-<div class="h-full bg-tertiary progress-fill-animate" style="--progress-width: 50%;"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SESSÃO 02: O PROBLEMA -->
-<section class="w-full bg-surface-container-low py-32 px-6 flex flex-col items-center relative overflow-hidden">
-<div class="max-w-4xl w-full text-center relative z-10">
-<h2 class="font-headline font-bold text-3xl md:text-5xl text-error mb-8 uppercase tracking-tighter">
-                    Subiu de nível? Mas quando a tela desliga não tem nada.
-                </h2>
-<p class="font-body text-lg text-on-surface-variant mb-12 max-w-3xl mx-auto leading-relaxed">
-                    Ninguém é contra a diversão. O problema é quando ela vira escape da realidade. Você gasta horas em jogos, redes ou distrações vazias porque:
+<main class="relative z-10">
+<!-- SESSÃO 01: Hero -->
+<section class="min-h-[884px] flex flex-col items-center justify-center pt-24 px-6 text-center pb-24" data-stitch-vh="min-h-[884px]===min-h-screen">
+<div class="max-w-4xl mx-auto">
+<span class="inline-block px-4 py-1 mb-6 rounded-full border border-primary/30 bg-primary/10 text-primary font-label text-xs tracking-[0.2em] uppercase">
+                    Protocolo de Elite Ativado
+                </span>
+<h1 class="font-headline text-5xl md:text-7xl font-black tracking-tighter text-on-surface mb-8 leading-[1.1] glow-text uppercase">Sua recompensa não precisa ser no videogame, <span class="text-[#00F0FF] drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">pode ser real.</span></h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl mx-auto mb-12">
+                    Transforme suas tarefas em um jogo, aumente sua produtividade, consistência, e conquiste seus sonhos no mundo real.
                 </p>
-<div class="grid md:grid-cols-3 gap-6 mb-16">
-<div class="p-8 rounded-2xl glass-panel border-error/10 text-left card-hover">
-<span class="material-symbols-outlined text-error text-4xl mb-4">explore_off</span>
-<h4 class="font-headline font-bold text-on-surface mb-2">Falta direcionamento</h4>
-<p class="text-sm text-on-surface-variant">Energia desperdiçada em qualquer coisa, menos nos seus objetivos reais.</p>
-</div>
-<div class="p-8 rounded-2xl glass-panel border-error/10 text-left card-hover">
-<span class="material-symbols-outlined text-error text-4xl mb-4">gpp_maybe</span>
-<h4 class="font-headline font-bold text-on-surface mb-2">Sem controle real</h4>
-<p class="text-sm text-on-surface-variant">Tarefas acumulam, metas evaporam, e o ciclo de culpa bate toda noite.</p>
-</div>
-<div class="p-8 rounded-2xl glass-panel border-error/10 text-left card-hover">
-<span class="material-symbols-outlined text-error text-4xl mb-4">lock</span>
-<h4 class="font-headline font-bold text-on-surface mb-2">Você vira refém</h4>
-<p class="text-sm text-on-surface-variant">Atividades que não constroem hábitos, identidade ou resultados tangíveis.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-16">
+<button class="btn-3d bg-primary-container text-on-primary-container font-headline font-bold py-5 px-12 rounded-xl text-lg tracking-wide uppercase">
+                        Começar meu jogo
+                    </button>
 </div>
 </div>
-<div class="p-12 rounded-3xl bg-surface-container-highest border border-outline-variant/20 relative overflow-hidden group hover:border-secondary/30 transition-all">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-9xl">trending_up</span>
+<!-- Interactive HUD Animation -->
+<div class="w-full max-w-4xl mx-auto relative group min-h-[700px]"><div class="relative w-full max-w-4xl h-[700px] mx-auto flex items-center justify-center overflow-visible">
+<!-- Ambient Background Glow -->
+<div class="absolute inset-0 bg-primary/10 blur-[120px] rounded-full opacity-40"></div>
+<!-- 3D Smartphone Container -->
+<div class="relative perspective-1000">
+<div class="relative w-[300px] h-[600px] bg-zinc-900 rounded-[3rem] border-[6px] border-zinc-800 shadow-[0_0_80px_rgba(0,0,0,0.9),0_0_20px_rgba(0,240,255,0.2)] transform -rotate-x-12 rotate-y-6 rotate-z-2 transition-transform duration-700 hover:rotate-y-0 hover:rotate-x-0">
+<!-- High-Tech Screen Content -->
+<div class="absolute inset-3 bg-zinc-950 rounded-[2.5rem] overflow-hidden border border-primary/20">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary/5"></div>
+<div class="absolute top-0 left-0 w-full h-1 bg-primary/40 blur-sm animate-[scan_4s_linear_infinite]"></div>
+<!-- HUD Interface Inside Screen -->
+<div class="flex flex-col items-center justify-center h-full p-6 text-center">
+<div class="w-16 h-16 rounded-full border-2 border-primary/40 border-dashed animate-[spin_8s_linear_infinite] flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
 </div>
-<p class="font-body text-xl md:text-2xl text-on-surface font-medium leading-relaxed relative z-10">
-                        Resultado? Vida estagnada, sonhos adiados, sua melhor versão travada. E se, em vez de fugir, você transformasse sua realidade em um jogo? <span class="text-secondary font-bold">Direcione essa força para conquistas reais, com pontos, níveis e recompensas.</span>
-</p>
+<h3 class="font-headline font-black text-primary text-xl tracking-widest mb-2">MINHA VIDA É UM JOGO</h3>
+<div class="w-full h-1 bg-zinc-800 rounded-full mb-4">
+<div class="h-full bg-primary w-2/3 shadow-[0_0_10px_#00F0FF]"></div>
+</div>
+<p class="text-[10px] text-primary/60 font-headline uppercase tracking-[0.2em]">sistema online</p>
+</div>
+</div>
+<!-- Physical Details -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-6 bg-zinc-900 rounded-full flex items-center justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-zinc-800"></div>
+<div class="w-8 h-1 bg-zinc-800 rounded-full"></div>
+</div>
+</div>
+<!-- Animated Floating Notifications -->
+<div class="absolute inset-0 pointer-events-none">
+<!-- Task 1 -->
+<div class="absolute -left-24 top-20 animate-[float-up-fade_5s_infinite] opacity-0" style="animation-delay: 0s;">
+<div class="glass-card px-6 py-4 rounded-2xl border border-primary/40 shadow-[0_0_25px_rgba(0,240,255,0.2)] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div class="text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Missão</p>
+<p class="text-white font-headline font-bold text-sm whitespace-nowrap">Estudar 30 minutos</p>
+</div>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="absolute -right-32 top-40 animate-[float-up-fade_5s_infinite] opacity-0" style="animation-delay: 1s;">
+<div class="glass-card px-6 py-4 rounded-2xl border border-primary/40 shadow-[0_0_25px_rgba(0,240,255,0.2)] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+</div>
+<div class="text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Desafio</p>
+<p class="text-white font-headline font-bold text-sm whitespace-nowrap">Ir na academia</p>
+</div>
+</div>
+</div>
+<!-- Task 3 -->
+<div class="absolute -left-36 top-1/2 animate-[float-up-fade_5s_infinite] opacity-0" style="animation-delay: 2s;">
+<div class="glass-card px-6 py-4 rounded-2xl border border-primary/40 shadow-[0_0_25px_rgba(0,240,255,0.2)] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">chat</span>
+</div>
+<div class="text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Social</p>
+<p class="text-white font-headline font-bold text-sm whitespace-nowrap">Mandar mensagem para o Miguel</p>
+</div>
+</div>
+</div>
+<!-- Task 4 -->
+<div class="absolute -right-28 bottom-20 animate-[float-up-fade_5s_infinite] opacity-0" style="animation-delay: 3s;">
+<div class="glass-card px-6 py-4 rounded-2xl border border-primary/40 shadow-[0_0_25px_rgba(0,240,255,0.2)] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">business_center</span>
+</div>
+<div class="text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Evento</p>
+<p class="text-white font-headline font-bold text-sm whitespace-nowrap">Reunião com a empresa</p>
+</div>
+</div>
+</div>
+<!-- Task 5 -->
+<div class="absolute left-1/2 -translate-x-1/2 -bottom-20 animate-[float-up-fade_5s_infinite] opacity-0" style="animation-delay: 4s;">
+<div class="glass-card px-8 py-4 rounded-2xl border border-primary/40 shadow-[0_0_25px_rgba(0,240,255,0.2)] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">event_repeat</span>
+</div>
+<div class="text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Daily</p>
+<p class="text-white font-headline font-bold text-sm whitespace-nowrap">Sincronização Diária</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+    @keyframes scan {
+      0% { top: 0%; }
+      100% { top: 100%; }
+    }
+    @keyframes float-up-fade {
+      0% { transform: translateY(40px) scale(0.8); opacity: 0; }
+      15% { transform: translateY(0) scale(1); opacity: 1; }
+      85% { transform: translateY(-30px) scale(1); opacity: 1; }
+      100% { transform: translateY(-70px) scale(0.9); opacity: 0; }
+    }
+    .perspective-1000 { perspective: 1500px; }
+  </style>
+</div></div>
+<script>
+    const tasksList = [
+      "Estudar 30 minutos",
+      "Ir na academia",
+      "Mandar mensagem para o Miguel",
+      "Reunião com a empresa",
+      "Daily"
+    ];
+    let xpPoints = 2450;
+
+    function renderTasks() {
+      const container = document.getElementById('task-list-container');
+      container.innerHTML = '';
+      tasksList.forEach((task, index) => {
+        const card = document.createElement('div');
+        card.className = 'task-card-new flex items-center justify-between p-6 bg-[#1a1c23] border border-primary/30 rounded-lg shadow-lg transition-all duration-500';
+        card.id = `task-${index}`;
+        card.innerHTML = `
+          <div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-headline mb-1">Missão Ativa</span>
+<span class="text-xl font-bold text-white font-headline">${task}</span>
+</div>
+<button class="border border-primary/50 px-6 py-2 text-primary font-bold text-xs uppercase tracking-widest hover:bg-primary/10 transition-colors rounded" onclick="completeTaskNew(${index}, this)">
+            Concluído
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function completeTaskNew(index, btn) {
+      if(btn.disabled) return;
+      btn.disabled = true;
+      
+      const card = document.getElementById(`task-${index}`);
+      const xpDisplay = document.getElementById('xp-display');
+      const container = document.querySelector('.hud-container');
+      
+      const rect = btn.getBoundingClientRect();
+      const xpRect = xpDisplay.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+
+      // XP Particles
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => createXpParticle(rect, xpRect, containerRect), i * 40);
+      }
+
+      // Animation out
+      card.style.transform = 'translateY(-20px) scale(0.95)';
+      card.style.opacity = '0';
+
+      setTimeout(() => {
+        card.remove();
+        xpPoints += 50;
+        xpDisplay.innerText = `LEVEL 12 [XP: ${xpPoints}]`;
+        xpDisplay.classList.add('scale-110');
+        setTimeout(() => xpDisplay.classList.remove('scale-110'), 200);
+        
+        // If empty, reset for demo
+        if (document.getElementById('task-list-container').children.length === 0) {
+          setTimeout(renderTasks, 1000);
+        }
+      }, 500);
+    }
+
+    function createXpParticle(originRect, targetRect, containerRect) {
+      const p = document.createElement('div');
+      p.className = 'xp-particle';
+      p.innerText = '+XP';
+      p.style.fontSize = (Math.random() * 8 + 12) + 'px';
+      
+      const startX = originRect.left - containerRect.left + originRect.width / 2;
+      const startY = originRect.top - containerRect.top + originRect.height / 2;
+      
+      const endX = targetRect.left - containerRect.left + targetRect.width / 2;
+      const endY = targetRect.top - containerRect.top + targetRect.height / 2;
+      
+      p.style.left = startX + 'px';
+      p.style.top = startY + 'px';
+      
+      const tx = endX - startX;
+      const ty = endY - startY;
+      
+      p.style.setProperty('--tw-tx', `${tx}px`);
+      p.style.setProperty('--tw-ty', `${ty}px`);
+      p.style.animation = 'floatToXp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+      
+      document.querySelector('.hud-container').appendChild(p);
+      setTimeout(() => p.remove(), 850);
+    }
+
+    // Initial render
+    renderTasks();
+  </script>
+</section>
+<!-- SESSÃO 02: Problema/Conscientização -->
+<section class="py-32 px-6 max-w-5xl mx-auto">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -inset-4 bg-error/10 blur-3xl rounded-full opacity-30"></div>
+<img class="relative rounded-2xl border border-white/5 grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK3zveMnP_IT0_uZPcIkMXap_Ycm48zEluu96YcepFYkPgvARJ1tTcvFIrNucIecmBCYy8STTJI0zS4IjV-DQSbNDYIkmk0S2tewZUlR1mXr7l0MM6e8-NpApLEEHEnwqvwL3bW0OKqDkW2xfcBtW7KCQxLK_ztfO-WDXFC_cErLl511N604dMDScyNh8yxHkls13aBmPUPfgw16XaJz8wy9nnyU2MN8HWvkY-CY2-bGhUEEPg8DFVCRHgVLR15_dD2mqxqmn5d5M">
+</div>
+<div>
+<h2 class="font-headline text-3xl font-bold mb-8 leading-tight text-on-surface uppercase tracking-tight glitch-text" style="color: rgb(255, 49, 49); text-shadow: rgb(255, 49, 49) 0px 0px 8px;">
+                        Subiu de nível? Mas quando a tela desliga não tem nada.
+                    </h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">
+                        Ninguém é contra a diversão. O problema é quando ela vira escape da realidade. Você gasta horas em jogos, redes ou distrações vazias porque:
+                    </p>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<p><strong class="text-on-surface">Falta direcionamento:</strong> Energia desperdiçada em qualquer coisa, menos nos seus objetivos reais.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-error">block</span>
+<p><strong class="text-on-surface">Sem controle real:</strong> Tarefas acumulam, esquece de fazer, metas evaporam, e o ciclo de culpa bate toda noite.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-error">lock</span>
+<p><strong class="text-on-surface">Você vira refém:</strong> Atividades que não constroem hábitos, identidade ou resultados tangíveis.</p>
+</li>
+</ul>
+<div class="mt-10 p-6 bg-surface-container-high rounded-xl border-l-4 border-primary">
+<p class="text-on-surface italic">Resultado? <span style="color: rgb(255, 49, 49); text-shadow: rgba(255, 49, 49, 0.6) 0px 0px 8px; font-weight: 600;">Vida estagnada, sonhos adiados, sua melhor versão travada</span>. E se, em vez de fugir, você transformasse sua realidade em um jogo? Direcione essa força para conquistas reais, com pontos, níveis e recompensas.</p>
+</div>
 </div>
 </div>
 </section>
-<!-- SESSÃO 03: FUNCIONALIDADES (Bento Grid) -->
-<section class="py-32 px-6 max-w-7xl mx-auto w-full relative">
+<!-- SESSÃO 03: O Sistema (Bento Grid) -->
+<section class="py-32 px-6 bg-surface-container-low/50">
+<div class="max-w-6xl mx-auto">
 <div class="text-center mb-20">
-<span class="text-primary font-headline font-bold tracking-[0.4em] uppercase text-xs mb-4 block">O CORE DO SISTEMA</span>
-<h2 class="font-headline font-black text-4xl md:text-6xl text-on-surface uppercase tracking-tighter">
-                    O Sistema que Transforma<br/><span class="text-primary">Tarefas em um Jogo real</span>
-</h2>
+<h2 class="font-headline text-4xl md:text-5xl font-black mb-6 uppercase tracking-tighter">O Sistema que <span class="typewriter-text">Transforma Tarefas em um Jogo real</span></h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Imagine: Em vez de apps genéricos que só listam tarefas, um sistema inteligente que:</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
-<!-- IA Executora -->
-<div class="md:col-span-3 glass-panel rounded-3xl p-10 flex flex-col justify-between border-primary/20 card-hover">
-<div>
-<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+<div class="bento-grid">
+<!-- IA Card -->
+<div class="col-span-12 md:col-span-7 glass-card p-8 rounded-3xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl -mr-16 -mt-16 group-hover:bg-primary/40 transition-all"></div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4">smart_toy</span>
+<h3 class="text-2xl font-headline font-bold mb-4">IA Executora</h3>
+<p class="text-on-surface-variant">Digite sua meta → quebra em missões/tarefas realistas, distribui na agenda sem sobrecarga.</p>
 </div>
-<h3 class="font-headline font-bold text-2xl mb-4">IA Executora</h3>
-<p class="text-on-surface-variant leading-relaxed">Digite sua meta → quebra em missões/tarefas realistas, distribui na agenda sem sobrecarga.</p>
+<!-- Gamification Card -->
+<div class="col-span-12 md:col-span-5 bg-secondary/10 border border-secondary/20 p-8 rounded-3xl group">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">leaderboard</span>
+<h3 class="text-2xl font-headline font-bold mb-4">Gamificação Viciante</h3>
+<p class="text-on-surface-variant">Pontos por esforço, níveis de evolução, crescimento visível.</p>
 </div>
-<div class="mt-8 pt-8 border-t border-outline-variant/10">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-surface-container-high border border-primary/30 animate-pulse shadow-[0_0_10px_rgba(143,245,255,0.3)]"></div>
-<div class="h-4 w-32 bg-surface-container-high rounded-full overflow-hidden">
-<div class="h-full bg-primary/20 animate-[shimmer_2s_infinite_linear] w-full"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Gamificação -->
-<div class="md:col-span-3 glass-panel rounded-3xl p-10 flex flex-col justify-between border-secondary/20 card-hover">
-<div>
-<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-secondary text-3xl">military_tech</span>
-</div>
-<h3 class="font-headline font-bold text-2xl mb-4">Gamificação Viciante</h3>
-<p class="text-on-surface-variant leading-relaxed">Pontos por esforço, níveis de evolução, crescimento visível.</p>
-</div>
-<div class="mt-8 flex gap-4">
-<div class="flex-1 h-3 bg-surface-container-highest rounded-full overflow-hidden progress-container relative">
-<div class="h-full bg-secondary progress-fill-animate progress-shimmer" style="--progress-width: 100%;"></div>
-<div class="level-up-indicator top-[-25px] left-1/2">LVL UP!</div>
-</div>
-<div class="flex-1 h-3 bg-surface-container-highest rounded-full overflow-hidden progress-container">
-<div class="h-full bg-secondary opacity-50 progress-fill-animate" style="--progress-width: 66%;"></div>
-</div>
-</div>
-</div>
-<!-- Análise -->
-<div class="md:col-span-2 glass-panel rounded-3xl p-8 border-outline-variant/20 card-hover">
-<span class="material-symbols-outlined text-primary-dim text-4xl mb-4">insights</span>
-<h4 class="font-headline font-bold text-xl mb-3">Análise Comportamental</h4>
+<!-- Analysis Card -->
+<div class="col-span-12 md:col-span-4 glass-card p-8 rounded-3xl border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4">monitoring</span>
+<h3 class="text-xl font-headline font-bold mb-4">Análise Comportamental</h3>
 <p class="text-sm text-on-surface-variant">Detecta falhas ("Você pula por falta de tempo? Ajuste automático aplicado").</p>
 </div>
-<!-- Identidade -->
-<div class="md:col-span-2 glass-panel rounded-3xl p-8 border-tertiary/20 card-hover">
-<span class="material-symbols-outlined text-tertiary text-4xl mb-4">badge</span>
-<h4 class="font-headline font-bold text-xl mb-3">Identidade em Construção</h4>
-<p class="text-sm text-on-surface-variant">Dashboard reforça "Você É Disciplinado" + categorias equilibradas (pessoal/trabalho/espiritual).</p>
+<!-- Identity Card -->
+<div class="col-span-12 md:col-span-4 glass-card p-8 rounded-3xl">
+<span class="material-symbols-outlined text-primary-dim text-4xl mb-4">person_play</span>
+<h3 class="text-xl font-headline font-bold mb-4">Identidade em Construção</h3>
+<p class="text-sm text-on-surface-variant">Dashboard reforça "Você É Disciplinado/Focado" + categorias equilibradas.</p>
 </div>
-<!-- Recompensas -->
-<div class="md:col-span-2 glass-panel rounded-3xl p-8 border-secondary-fixed/20 card-hover">
-<span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">redeem</span>
-<h4 class="font-headline font-bold text-xl mb-3">Recompensas Reais</h4>
-<p class="text-sm text-on-surface-variant">Ganhe pontos e níveis para se recompensar com jantares, cashback ou upgrades pessoais.</p>
+<!-- Rewards Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-highest p-8 rounded-3xl border border-white/5">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">card_giftcard</span>
+<h3 class="text-xl font-headline font-bold mb-4">Recompensas Reais</h3>
+<p class="text-sm text-on-surface-variant">Ganhe pontos e níveis para se recompensar com jantares, cashback ou upgrades.</p>
+</div>
+<!-- Mechanism Card -->
+<div class="col-span-12 glass-card p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 border-t-2 border-primary/30">
+<div class="max-w-md">
+<h3 class="text-2xl font-headline font-bold mb-2">Mecanismo Exclusivo</h3>
+<p class="text-primary font-bold text-lg mb-4">Meta → Missão → Tarefa → Execução</p>
+<p class="text-on-surface-variant">Nenhum app faz isso. Queremos formar um jogador melhor para a vida.</p>
+</div>
+<div class="flex items-center gap-4 text-primary opacity-50 overflow-hidden select-none">
+<span class="material-symbols-outlined text-6xl">target</span>
+<span class="material-symbols-outlined text-4xl">arrow_forward</span>
+<span class="material-symbols-outlined text-6xl">assignment</span>
+<span class="material-symbols-outlined text-4xl">arrow_forward</span>
+<span class="material-symbols-outlined text-6xl">bolt</span>
 </div>
 </div>
-<div class="mt-12 p-8 rounded-3xl bg-primary/5 border border-primary/20 text-center relative overflow-hidden group">
-<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<p class="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter relative z-10">
-                    Mecanismo Exclusivo: <span class="text-primary">Meta</span> → Missão → Tarefa → <span class="text-primary">Execução</span>
-</p>
+</div><div class="flex justify-center mt-16">
+<button class="btn-3d bg-primary-container text-on-primary-container font-headline font-bold py-6 px-16 rounded-xl text-xl tracking-wider uppercase flex items-center gap-3 shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_40px_rgba(0,240,255,0.6)]">
+    Quero atingir minhas metas
+    <span class="material-symbols-outlined text-2xl">arrow_forward</span>
+</button>
+</div>
 </div>
 </section>
-<!-- SESSÃO 04: CONTROLE TOTAL -->
-<section class="w-full bg-surface-container-high py-32 px-6 relative overflow-hidden">
-<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
-<div class="relative group">
-<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 blur-[100px] group-hover:bg-primary/30 transition-all animate-pulse"></div>
-<img alt="A person enjoying free time with holographic interface" class="rounded-3xl border border-primary/30 shadow-2xl relative z-10 card-hover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANa5OPe-TbAVuncZLcAk5D3QzyNfOfwVjXybPiYf-xdp_o4IwEIbiVS7tzaeW1r973S4owZnfZpbiU9pDDzMXOWdHTozksXcmRJT2B6lEeP9si5dQzD53D6YZwkxU6EccE-tKri_EQRClwtTdq2hy5sWcEiw-ncCTuWKSROJmNMhOkPSbQVMEJ4cKZIIurAxf70r_bjuWOURpGPyB6vkx4Eu2I03wxx_DmemSEXSoZRYSgsyJpxs-KPsizugMJgeHqBoh7QnVQiO0"/>
+<!-- SESSÃO 04: Tempo -->
+<section class="py-32 px-6">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16">
+<div class="w-full md:w-1/2">
+<div class="relative w-full aspect-square md:aspect-video lg:aspect-square bg-slate-900/40 rounded-3xl border border-cyan-500/30 overflow-hidden flex items-center justify-center shadow-[0_0_50px_rgba(0,240,255,0.15)]">
+<!-- Neon Grid Background -->
+<div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0, 240, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.2) 1px, transparent 1px); background-size: 30px 30px;"></div>
+<!-- Main Agenda/Calendar Visual Container -->
+<div class="relative z-10 w-3/4 h-3/4">
+<!-- Agenda Base (3D look) -->
+<div class="absolute inset-0 bg-zinc-900 rounded-2xl border-2 border-cyan-400/50 shadow-[0_0_30px_rgba(0,240,255,0.3)] transform -rotate-x-12 rotate-y-12 flex flex-col p-4">
+<div class="h-6 w-full border-b border-cyan-500/30 flex gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-500/50"></div>
 </div>
-<div>
-<h2 class="font-headline font-black text-4xl md:text-5xl uppercase tracking-tighter mb-8 leading-tight">
-                        Controle seu tempo, <span class="text-primary">controle seu jogo</span>
-</h2>
-<p class="font-body text-xl text-on-surface-variant leading-relaxed mb-8">
-                        Tenha acesso total a sua agenda, encaixe automaticamente suas tarefas nos seus horários disponíveis, veja de forma clara seu tempo de sono, tempo ocupado, tempo livre, nunca mais sofra com tentar encaixar isso na agenda.
+<div class="grid grid-cols-7 gap-1 flex-grow opacity-30">
+<div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/20 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div>
+<div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div>
+<div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div><div class="bg-cyan-500/10 rounded-sm"></div>
+</div>
+</div>
+<!-- Floating Tasks Popping Out -->
+<!-- Task 1 -->
+<div class="absolute -top-4 -right-8 glass-card border border-primary/50 p-3 rounded-lg shadow-lg animate-bounce flex items-center gap-3 z-20" style="animation-duration: 3s;">
+<span class="material-symbols-outlined text-primary text-sm">groups</span>
+<span class="text-[10px] md:text-xs font-headline font-bold text-white uppercase tracking-wider">Reunião de Equipe</span>
+</div>
+<!-- Task 2 -->
+<div class="absolute top-1/2 -left-12 glass-card border border-secondary/50 p-3 rounded-lg shadow-lg animate-bounce flex items-center gap-3 z-20" style="animation-delay: 0.5s; animation-duration: 4s;">
+<span class="material-symbols-outlined text-secondary text-sm">bolt</span>
+<span class="text-[10px] md:text-xs font-headline font-bold text-white uppercase tracking-wider">Treino de Foco</span>
+</div>
+<!-- Task 3 -->
+<div class="absolute -bottom-6 right-4 glass-card border border-tertiary/50 p-3 rounded-lg shadow-lg animate-bounce flex items-center gap-3 z-20" style="animation-delay: 1s; animation-duration: 3.5s;">
+<span class="material-symbols-outlined text-tertiary text-sm">bar_chart</span>
+<span class="text-[10px] md:text-xs font-headline font-bold text-white uppercase tracking-wider">Análise de Dados</span>
+</div>
+</div>
+<!-- HUD Overlay Scanning Effect -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent h-1/2 w-full animate-[pulse_2s_infinite] pointer-events-none"></div>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="font-headline text-4xl font-bold mb-8 uppercase tracking-tight">Controle seu tempo, controle seu jogo</h2>
+<p class="text-lg leading-relaxed text-on-surface-variant">
+                        Tenha acesso total a sua agenda, encaixe automaticamente suas tarefas nos seus horários disponíveis, veja de forma clara seu tempo de sono, tempo ocupado, tempo livre, nunca mais sofra com tentar encaixar isso na agenda, fazemos isso para você, basta executar.
                     </p>
-<div class="inline-flex items-center gap-4 p-4 rounded-2xl glass-panel border-primary/20 card-hover shadow-[0_0_15px_rgba(143,245,255,0.1)]">
-<span class="material-symbols-outlined text-primary text-3xl animate-bounce">task_alt</span>
-<span class="font-headline font-bold uppercase tracking-widest text-sm text-primary">Nós fazemos isso para você, basta executar.</span>
-</div>
 </div>
 </div>
 </section>
-<!-- SESSÃO 05: FINANCEIRO -->
-<section class="py-32 px-6 w-full max-w-5xl mx-auto text-center relative">
-<div class="mb-16 relative z-10">
-<span class="material-symbols-outlined text-secondary text-6xl mb-6 animate-pulse" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
-<h2 class="font-headline font-black text-4xl md:text-5xl uppercase tracking-tighter mb-6">
-                    Com moedas <span class="text-secondary">não se brinca</span>
-</h2>
-<p class="font-body text-xl text-on-surface-variant max-w-2xl mx-auto">
+<!-- SESSÃO 05: Financeiro -->
+<section class="py-32 px-6 relative overflow-hidden">
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 blur-[120px] rounded-full"></div>
+<div class="max-w-4xl mx-auto text-center">
+<div class="mb-12 inline-flex items-center justify-center w-24 h-24 rounded-full bg-secondary/10 border border-secondary/30">
+<div class="coin-3d"></div>
+</div>
+<h2 class="font-headline text-4xl md:text-5xl font-black mb-8 uppercase bg-clip-text text-transparent" style="background: linear-gradient(to right, rgb(255, 215, 0), rgb(184, 134, 11)) text; -webkit-text-fill-color: transparent; text-shadow: rgba(255, 215, 0, 0.4) 0px 0px 15px;">Com moedas não se brinca</h2>
+<p class="text-xl text-on-surface-variant mb-16 max-w-2xl mx-auto leading-relaxed">
                     Agora você consegue ter seu controle financeiro na palma da mão, registre seus gastos e tenha controle de tudo, registrando direto pelo WhatsApp ou na plataforma.
                 </p>
+<div class="glass-card p-4 rounded-[2rem] border border-secondary/20 shadow-xl">
+<img alt="Representação visual de registro de gastos no sistema" class="rounded-[1.5rem] grayscale-[0.5] hover:grayscale-0 transition-all duration-500 max-w-md mx-auto block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS3Z14yv0CPDZEbMSB131gSmMtt6sNapw-Ld32lSxi-NayQRn2OP2byV0mRJH1g4brv7ulKuXjvNfN0NPOcFjoSefaaHagtqsmYSFaSRhNpCWZHx97AfCZV8lMfScxGAxfstPSYLZCefO7bUrEsirgZXmknWK18Bk7OV_928VxgSjaqdPa2v7JwJO5jMIpmShhfEmarGq2jkKCzkyO1ONyWbXM2yty_j22XKTt8FF3HHfKu9tH43PlCnzT-Pw2AAjp0Mde3p_fq58">
 </div>
-<div class="relative max-w-md mx-auto aspect-[9/19] bg-surface-container-lowest border-8 border-surface-container-highest rounded-[3rem] p-4 shadow-2xl card-hover relative z-10">
-<img alt="Financial app dashboard" class="w-full h-full object-cover rounded-[2.5rem] shadow-2xl border border-secondary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgROAykzC4cP4oCGEILlbl_ORHeuOr1Otsh3WQmlkh4rIV3B4yubkJnchmUc5S5EmM5W23lzy5hzUehzkHby4rMAA1FXDG8KJVPR6Ww2URc8zdngKPyKphdSUOiewkZg_m4W9GqA9PBtGaPj74oG7LG6D8NLXlt-5skhSHVLsYpmjcCeFpEfFefKC5VkGitcNuvc1mP5PAqhhDYzdbjoT_M6c2i6mlEiwM_9BM5dix2ftu5lwmHEKlSrFiyn7f7QnmUeFD5lw-u44"/>
 </div>
 </section>
-<!-- SESSÃO 06: HABITOS -->
-<section class="w-full bg-gradient-to-b from-surface to-surface-container-low py-32 px-6 relative overflow-hidden">
-<div class="max-w-4xl mx-auto text-center relative z-10">
-<h2 class="font-headline font-black text-4xl md:text-6xl uppercase tracking-tighter mb-8 leading-none">
-                    Disciplina começa nas <span class="text-primary-dim">pequenas coisas</span>
-</h2>
-<p class="font-body text-xl text-on-surface-variant mb-16 max-w-2xl mx-auto">
-                    Defina sua meta diária de hidratação e acompanhe cada passo do seu progresso. Porque consistência não se constrói em grandes decisões, mas em hábitos diários.
+<!-- SESSÃO NOVA: Metas e IA -->
+<section class="py-32 px-6 relative"><div class="absolute inset-0 overflow-hidden pointer-events-none z-0" id="footprint-animation-bg">
+<!-- Sequential footprints -->
+<div class="footprint footprint-pair-left" style="top: 80%; left: 10%; animation-delay: 0s;"></div>
+<div class="footprint footprint-pair-right" style="top: 75%; left: 18%; animation-delay: 0.4s;"></div>
+<div class="footprint footprint-pair-left" style="top: 68%; left: 24%; animation-delay: 0.8s;"></div>
+<div class="footprint footprint-pair-right" style="top: 62%; left: 32%; animation-delay: 1.2s;"></div>
+<div class="footprint footprint-pair-left" style="top: 55%; left: 40%; animation-delay: 1.6s;"></div>
+<div class="footprint footprint-pair-right" style="top: 48%; left: 48%; animation-delay: 2.0s;"></div>
+<div class="footprint footprint-pair-left" style="top: 40%; left: 55%; animation-delay: 2.4s;"></div>
+<div class="footprint footprint-pair-right" style="top: 35%; left: 65%; animation-delay: 2.8s;"></div>
+</div>
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 relative">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-tertiary rounded-3xl blur opacity-20"></div>
+<img alt="Personagem 3D caminhando em um caminho neon em direção à luz, representando o alcance de metas." class="relative rounded-3xl border border-white/10 shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcNe5lkRSK5xKpFi3GoPGq62G2L4pddr03KmCIfOGSmQTOcJGzdD1Su0UfDrAqacyY54Qv7qXmJpVTZ2hEqK4qr_tZd9JGgu0cacvPyAh9wiW2S2eOId0seoDtTOv1PWw_TwEzCL6cNcwpnm18Y4D1dbJw057K93LwOoN4drHDy99z5DCaqDkOJQcPUhuyBaHyxaGFUOF35R0WARLTB1ssehHxJDpmtC0lqp9CvyFJaQ8aGxeTKZHzSTxxUxxDXn0fBt_ORpc8vRM">
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="font-headline text-4xl font-bold mb-8 uppercase tracking-tight leading-tight">Você tem uma Meta, mas não sabe como chegar nela.</h2>
+<p class="text-lg leading-relaxed text-on-surface-variant mb-8">
+                    Não se preocupe, nossa IA exclusiva usa neurociência para entender a sua meta e quebrar em missões simples e práticas, coloca isso na sua agenda, e facilita para que você execute. Nunca foi tão fácil tirar suas metas do papel.
                 </p>
-<div class="relative max-w-xs mx-auto progress-container">
-<div class="w-64 h-64 rounded-full border-8 border-surface-container-highest flex flex-col items-center justify-center relative mx-auto group card-hover">
-<!-- Background Circle -->
-<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 100 100">
-<circle class="text-primary/10" cx="50" cy="50" fill="transparent" r="46" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-primary transition-all duration-[2000ms] ease-out section-visible:stroke-dashoffset-[72.25] shadow-[0_0_15px_rgba(143,245,255,0.5)]" cx="50" cy="50" fill="transparent" r="46" stroke="currentColor" stroke-dasharray="289" stroke-dashoffset="289" stroke-width="8"></circle>
-</svg>
-<span class="material-symbols-outlined text-primary text-5xl mb-2 group-hover:scale-110 transition-transform animate-pulse" style="font-variation-settings: 'FILL' 1;">water_drop</span>
-<p class="font-headline font-black text-4xl text-on-surface">75%</p>
-<p class="text-[10px] uppercase font-headline tracking-widest opacity-50">Hidratação</p>
-<div class="level-up-indicator top-0 right-0">+50 XP</div>
+<div class="p-6 bg-surface-container-highest/50 rounded-2xl border border-primary/20 backdrop-blur-sm">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+<div>
+<h4 class="font-headline font-bold text-primary mb-1 uppercase text-sm tracking-widest">Protocolo Neural Ativado</h4>
+<p class="text-xs text-on-surface-variant opacity-80">Otimizando caminhos neurais para máxima execução e redução de fricção cognitiva.</p>
+</div>
+</div>
+</div>
+<div class="mt-10">
+<button class="btn-3d inline-block bg-primary-container text-on-primary-container font-headline font-bold py-5 px-12 rounded-lg text-lg tracking-wide uppercase shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.6)] ml-4">Quero começar agora</button>
 </div>
 </div>
 </div>
 </section>
-<!-- SESSÃO 07: PARA QUEM -->
-<section class="py-32 px-6 max-w-6xl mx-auto w-full relative">
-<h2 class="font-headline font-black text-4xl md:text-5xl uppercase tracking-tighter mb-16 text-center relative z-10">
-                Esse jogo é <span class="text-tertiary">para mim?</span>
-</h2>
-<div class="grid gap-4 relative z-10">
-<div class="p-8 glass-panel rounded-2xl flex flex-col md:flex-row gap-6 items-start md:items-center card-hover border-tertiary/10">
-<span class="material-symbols-outlined text-tertiary text-4xl animate-pulse">repeat</span>
-<div>
-<h4 class="font-headline font-bold text-xl mb-1 uppercase tracking-tight">Sabe o que precisa fazer, mas não consegue manter consistência</h4>
-<p class="text-on-surface-variant">Você tem metas, mas sempre para no meio do caminho.</p>
+<!-- SESSÃO 06: Hidratação -->
+<section class="py-32 px-6 bg-surface-container">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 relative">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+<img class="relative rounded-3xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo60kdqY9LXgZyLedyR0sw5sI_e2cdOFT8BCIzsyKz-QaAa4EpBTNfkoFWXmtWkKvxZJXw5vOBSqMbuJsff9DVC-f7RJngukE7KhN8_tTo_I2ncVujEuQhML_qKQ0X84fnVohihJ2HfqESLPWfvPEDDQA-8llzzYAsZxp1O6dv-oWuncY7XibM26RrvOcfFUQK_wr4VNqqJJxA_9LE9vci8P4IXUtiLDMSapJIzo9TlKZwUXAY2_6ML9e1-YeEm21-5Ao2Zp3TcOc">
 </div>
+<div class="w-full md:w-1/2">
+<h2 class="font-headline text-4xl font-bold mb-6 uppercase tracking-tight">Disciplina começa nas pequenas coisas</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed">
+                        Defina sua meta diária de hidratação e acompanhe cada passo do seu progresso. Porque consistência não se constrói em grandes decisões, mas em hábitos diários.
+                    </p>
+<div class="mt-8 flex items-center gap-4">
+<div class="flex-1 bg-surface-container-highest h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%] shadow-[0_0_10px_#8ff5ff]"></div>
 </div>
-<div class="p-8 glass-panel rounded-2xl flex flex-col md:flex-row gap-6 items-start md:items-center card-hover border-tertiary/10">
-<span class="material-symbols-outlined text-tertiary text-4xl animate-pulse">slow_motion_video</span>
-<div>
-<h4 class="font-headline font-bold text-xl mb-1 uppercase tracking-tight">Se sente travado e sem progresso</h4>
-<p class="text-on-surface-variant">Está sempre ocupado, mas sua vida não avança como deveria.</p>
-</div>
-</div>
-<div class="p-8 glass-panel rounded-2xl flex flex-col md:flex-row gap-6 items-start md:items-center card-hover border-tertiary/10">
-<span class="material-symbols-outlined text-tertiary text-4xl animate-pulse">app_badging</span>
-<div>
-<h4 class="font-headline font-bold text-xl mb-1 uppercase tracking-tight">Tentou métodos e apps de produtividade sem sucesso</h4>
-<p class="text-on-surface-variant">Você já se organizou antes, mas nunca conseguiu sustentar a execução.</p>
-</div>
-</div>
-<div class="p-8 glass-panel rounded-2xl flex flex-col md:flex-row gap-6 items-start md:items-center card-hover border-tertiary/10">
-<span class="material-symbols-outlined text-tertiary text-4xl animate-pulse">psychology_alt</span>
-<div>
-<h4 class="font-headline font-bold text-xl mb-1 uppercase tracking-tight">Quer parar de se sabotar e criar disciplina de verdade</h4>
-<p class="text-on-surface-variant">Chega de prometer e não cumprir.</p>
-</div>
-</div>
-<div class="p-8 glass-panel rounded-2xl flex flex-col md:flex-row gap-6 items-start md:items-center card-hover border-tertiary/10">
-<span class="material-symbols-outlined text-tertiary text-4xl animate-pulse">workspace_premium</span>
-<div>
-<h4 class="font-headline font-bold text-xl mb-1 uppercase tracking-tight">Quer evoluir de forma completa</h4>
-<p class="text-on-surface-variant">Crescer no pessoal, profissional e emocional ao mesmo tempo.</p>
+<span class="text-primary font-headline font-bold">65%</span>
 </div>
 </div>
 </div>
 </section>
-<!-- SESSÃO 08: PREÇO -->
-<section class="py-32 px-6 w-full relative flex flex-col items-center">
-<div class="absolute inset-0 -z-10 bg-primary/5 opacity-30"></div>
-<div class="max-w-4xl w-full glass-panel rounded-[3rem] p-12 md:p-20 border-primary/30 relative overflow-hidden text-center card-hover shadow-[0_0_50px_rgba(143,245,255,0.1)]">
-<div class="absolute top-0 left-1/2 -translate-x-1/2 px-8 py-2 bg-primary text-on-primary font-headline font-black rounded-b-2xl uppercase tracking-widest text-xs shadow-lg">
-                    ACESSO IMEDIATO
-                </div>
-<h2 class="font-headline font-black text-4xl md:text-6xl uppercase tracking-tighter mb-4 relative z-10">
-                    Hora de jogar
-                </h2>
-<div class="flex items-center justify-center gap-2 mb-12 relative z-10">
-<span class="text-2xl font-body text-on-surface-variant">por apenas</span>
-<span class="text-6xl font-headline font-black text-primary text-glow">19,90</span>
-<span class="text-2xl font-body text-on-surface-variant">por mês</span>
+<!-- SESSÃO 07: Para quem (REFEITA) -->
+<section class="py-32 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline text-4xl md:text-5xl font-black uppercase tracking-tighter glow-text">Esse jogo é para quem:</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-left mb-16 relative z-10">
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Sistema completo de metas</span>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="card-3d-wrapper">
+<div class="card-3d neon-glow-card glass-card rounded-3xl p-6 h-full border border-primary/20 flex flex-col">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-6 border border-white/10 group">
+<img alt="Consistência" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsPpDOR78Zvg84E80GAS1HA2ivmdVx4HO_fsDEl0J-lVEUamnLyCfR2DCtaEA5XqYw7by63qOHsGNxpQOncOqIR7XyRpE837WPcRXcNLebMrFjEjDw4DJ1QSkByg5iPfKqxnyT_C_1ilxCl_XEWWAmb4dfYIvbo272X8LOy13pmL4DOextvtakFhQh-gF6TW3dtA7IFkRyaLKcrp51Ur6zVdLgnPOdU2PVGVI2klJssIq7G0gzFCwu9gcIMagn8U7YTWY3uqpBfMI">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0e0e13] to-transparent opacity-60"></div>
 </div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">IA que cria seu plano</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Agenda inteligente integrada</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Gamificação com níveis</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Dashboard de evolução completa</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Equilíbrio entre pessoal, trabalho e emocional</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Cálculo de esforço necessário</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Sistema que identifica sua sabotagem</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Recompensas e progresso contínuo</span>
-</div>
-<div class="flex items-center gap-3 group/item cursor-default">
-<span class="material-symbols-outlined text-primary text-sm group-hover/item:scale-125 transition-transform">check_circle</span>
-<span class="font-headline uppercase text-[10px] tracking-widest">Controle de hidratação</span>
+<h3 class="font-headline font-bold text-xl text-primary mb-3">Sabe o que precisa fazer, mas não consegue manter consistência</h3>
+<p class="text-on-surface-variant text-sm flex-grow">Você tem metas, mas sempre para no meio do caminho</p>
+<div class="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest text-primary/40 font-bold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+Analysing Pattern_01
 </div>
 </div>
-<div class="relative z-10">
-<button class="button-3d w-full bg-primary text-on-primary font-headline font-black text-2xl py-6 rounded-2xl uppercase tracking-[0.2em] glow-primary cta-pulse">
-                        Comprar agora
-                    </button>
-<div class="level-up-indicator -bottom-8 left-1/2 -translate-x-1/2">NEW PLAYER JOINING...</div>
 </div>
-<p class="mt-6 text-[10px] uppercase font-headline tracking-widest opacity-40 relative z-10">Cancelamento grátis a qualquer momento • Pagamento Seguro</p>
+<!-- Card 2 -->
+<div class="card-3d-wrapper">
+<div class="card-3d neon-glow-card glass-card rounded-3xl p-6 h-full border border-error/20 flex flex-col">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-6 border border-white/10 group">
+<img alt="Travado" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr9HwG5_F-v_akbVM_Z-QN-drUspunxGW5hyHVd0QZDr_RStrVbIjbfosGWggV1aEfvNMpDtP-jMf0hdKahYVx6fHDXzgz_3UepPo80OYf3k5DCg7KreyEKSHBcXJz14-ZPNNM7XnMl7CoUziKztbYqCfuKVXspe4lUHYHsizwp5QMlnwSrRKgmuU22wk19oa6F-ri2gpr4WavtnqGDb1k50R_9xL6HCu5-KDMWdjoOlJoxlYsJQ-E138kvTk4HTsTLjmd5naf3pU">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0e0e13] to-transparent opacity-60"></div>
+</div>
+<h3 class="font-headline font-bold text-xl text-error mb-3">Se sente travado e sem progresso</h3>
+<p class="text-on-surface-variant text-sm flex-grow">Está sempre ocupado, mas sua vida não avança como deveria</p>
+<div class="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest text-error/40 font-bold">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+Stagnation Detected
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="card-3d-wrapper">
+<div class="card-3d neon-glow-card glass-card rounded-3xl p-6 h-full border border-tertiary/20 flex flex-col">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-6 border border-white/10 group">
+<img alt="Apps" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASNWml1UpoUpgqxEQVouA2J4-tP-yunlGadT_hBI94rpCRTMyvpdfjEgMEALr5X8S2vmTgTmLP-E9jCIYja7G3alVSYOkNZTidT26J26pekFzrbcnO55B6v1ekwUd9ZZ8dLVDKW9kIMvywQ2-v-slMbXAYEPizhSnKjHXhc-ajoIzE9VsOHhAmbiFjHvClREY8ujNJRKdSO5Eb4G4OcTey5xKpA-nRJ-nc7YBYP_dRcLrryFlbBptmV0iNCjPtFUOipmSoldy1-mg">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0e0e13] to-transparent opacity-60"></div>
+</div>
+<h3 class="font-headline font-bold text-xl text-tertiary mb-3">Tentou métodos e apps de produtividade sem sucesso</h3>
+<p class="text-on-surface-variant text-sm flex-grow">Você já se organizou antes, mas nunca conseguiu sustentar a execução</p>
+<div class="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest text-tertiary/40 font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+System Reset Needed
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="card-3d-wrapper lg:col-start-1 lg:col-end-2">
+<div class="card-3d neon-glow-card glass-card rounded-3xl p-6 h-full border border-secondary/20 flex flex-col">
+<div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 border border-white/10 group">
+<img alt="Sabotagem" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV26w5OwwwK58jMT0gAI4C7OocvgBfHsMQbJo-Dn90HDelilAIMh2xgs1JhSTwAMFODwyeIoiWvwI8PQxLiwuY-9ily5N12t37qz4xeXrVAeGptIeWuR43DKHGEb6Kk_bjpyrcdZNSjEPmHAcnFfcCEFP8SqnmfXn5QfIUiX1-AJb8LvUiR8bTXFAjhmGSc0fHhKhvBxV_lvkep0QlwrUY4rQEA889IhnbD9l5PQTdYBh-DGTRICgiEBqBH4jWHrcRcZY5C6TUGaQ">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0e0e13] to-transparent opacity-60"></div>
+</div>
+<h3 class="font-headline font-bold text-xl text-secondary mb-3">Quer parar de se sabotar e criar disciplina de verdade</h3>
+<p class="text-on-surface-variant text-sm flex-grow">Chega de prometer e não cumprir</p>
+<div class="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest text-secondary/40 font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+Breaking Loops
+</div>
+</div>
+</div>
+<!-- Card 5 (Destaque) -->
+<div class="card-3d-wrapper lg:col-span-2">
+<div class="card-3d neon-glow-card glass-card rounded-3xl p-6 h-full border border-primary-fixed/20 flex flex-col md:flex-row gap-8">
+<div class="relative w-full md:w-1/2 aspect-video md:aspect-square rounded-2xl overflow-hidden border border-white/10 group shrink-0">
+<img alt="Evolução" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtmGkHx27XED1Pafi1hOmjdWOfDDiqTDlrqQT0ksaSzwhc5lRxIVTWK2couMZW7smXkzSZpMP9yprl0cnCWZ0l0sGSstdcP4J3bcl0r0x3XEdTvy1MHo0she4WfxORzpno8xGHfxn88k5LRkak0M19nBlnFQWSn8xOAHTmBiofepwo_IMVBD-D3JB0QEmHH35mc1DF482ONWfO9oL7txVM81xNhmhbjy8rY60lY0sPMzaXhAFaYskTIusu0mIBif7em6v2KL49Sbs">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0e0e13] to-transparent opacity-60"></div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-headline font-bold text-2xl text-primary-fixed mb-4">Quer evoluir de forma completa</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed">Crescer no pessoal, profissional e emocional ao mesmo tempo</p>
+<div class="mt-8 p-4 bg-primary-fixed/5 border border-primary-fixed/20 rounded-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed text-4xl">upgrade</span>
+<div>
+<span class="block text-[10px] text-primary-fixed/60 font-bold uppercase tracking-widest">Evolution Level</span>
+<span class="text-xl font-headline font-black text-primary-fixed">MAX CAPACITY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SESSÃO 08: Oferta -->
+<section class="py-32 px-6" id="price-box">
+<div class="max-w-4xl mx-auto glass-card rounded-[3rem] p-12 md:p-20 text-center border-2 border-primary/20 shadow-[0_0_60px_rgba(0,238,252,0.1)]">
+<h2 class="font-headline text-4xl md:text-5xl font-black mb-4 uppercase tracking-tighter animate-glow-pulse">Hora de jogar: <br><span class="block md:inline text-primary-container">por apenas 19,90 por mês</span></h2>
+<div class="h-1 w-32 bg-primary mx-auto mb-12"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">🎯 Sistema completo de metas</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">🧠 IA que cria seu plano</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">📅 Agenda inteligente integrada</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">🎮 Gamificação com níveis</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">📊 Dashboard de evolução completa</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">⚖️ Equilíbrio pessoal e emocional</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">⏱️ Cálculo de esforço necessário</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">🚨 Sistema anti-sabotagem</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">🏆 Recompensas contínuas</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+<span class="text-on-surface font-medium">💧 Controle de hidratação</span>
+</div>
+</div>
+<button class="btn-3d w-full bg-primary-container text-on-primary-container font-headline font-black py-6 rounded-2xl text-2xl tracking-[0.1em] uppercase shadow-2xl">
+                    Comprar agora
+                </button>
+<p class="mt-6 text-zinc-500 text-xs tracking-widest uppercase">Pagamento seguro via protocolo criptografado</p>
+<div class="mt-8 text-on-surface opacity-60">Quanto custa não ser sua melhor versão?</div>
 </div>
 </section>
 <!-- SESSÃO 09: FAQ -->
-<section class="py-32 px-6 w-full max-w-4xl mx-auto relative">
-<h2 class="font-headline font-black text-4xl uppercase tracking-tighter mb-16 text-center relative z-10">
-                Dúvidas?
-            </h2>
-<div class="space-y-4 relative z-10">
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Isso é só mais um app de tarefas?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Não. Esse sistema não serve apenas para organizar tarefas — ele transforma seus objetivos em um plano real de execução e acompanha sua evolução com base no que você realmente faz.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Eu preciso saber me organizar para usar?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Não. O sistema foi feito justamente para quem tem dificuldade em se organizar. Ele te guia passo a passo e faz a maior parte do trabalho por você.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Como o sistema cria minhas tarefas?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Você pode escolher: criar manualmente ou deixar que a IA monte tudo para você com base na sua meta, prazo e disponibilidade.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Funciona para qualquer tipo de meta?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Sim. Seja financeiro, profissional, estudos, saúde ou rotina pessoal, o sistema adapta tudo para a sua realidade.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Eu posso usar no meu dia a dia normalmente?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Sim. Além das metas, você também pode adicionar tarefas comuns, e o sistema organiza tudo de forma inteligente.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        O sistema organiza minha agenda sozinho?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Sim. Você pode adicionar todas as tarefas automaticamente na agenda, e ele distribui tudo de forma equilibrada ao longo do seu tempo disponível.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Preciso usar todos os dias?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Sim, e isso é parte do que faz o sistema funcionar. Ele foi feito para criar consistência, não uso ocasional.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        Isso realmente funciona para quem procrastina muito?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Sim. O sistema foi criado justamente para quem sabe o que precisa fazer, mas não consegue executar com consistência.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-outline-variant/10">
-<summary class="flex justify-between items-center p-6 cursor-pointer font-headline font-bold text-lg uppercase tracking-tight group-open:text-primary transition-colors">
-                        O que acontece quando eu atinjo uma meta?
-                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
-                        Você evolui no sistema, ganha recompensas e pode definir novas metas, criando um ciclo contínuo de progresso.
-                    </div>
-</details>
+<section class="py-32 px-6 max-w-3xl mx-auto"><div class="max-w-3xl mx-auto px-6">
+<h2 class="font-headline text-4xl font-black text-center mb-16 uppercase tracking-tighter glow-text">Dúvidas?</h2>
+<style>
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+      padding-bottom: 1.5rem;
+    }
+    .accordion-item.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+<div class="space-y-4" id="faq-accordion">
+<!-- Item 1 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Isso é só mais um app de tarefas?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
 </div>
-</section>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Não. Esse sistema não serve apenas para organizar tarefas — ele transforma seus objetivos em um plano real de execução e acompanha sua evolução com base no que você realmente faz.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Eu preciso saber me organizar para usar?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Não. O sistema foi feito justamente para quem tem dificuldade em se organizar. Ele te guia passo a passo e faz a maior parte do trabalho por você.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Como o sistema cria minhas tarefas?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Você pode escolher: criar manualmente ou deixar que a IA monte tudo para você com base na sua meta, prazo e disponibilidade.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Funciona para qualquer tipo de meta?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Sim. Seja financeiro, profissional, estudos, saúde ou rotina pessoal, o sistema adapta tudo para a sua realidade.</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Eu posso usar no meu dia a dia normalmente?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Sim. Além das metas, você também pode adicionar tarefas comuns, e o sistema organiza tudo de forma inteligente.</p>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">O sistema organiza minha agenda sozinho?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Sim. Você pode adicionar todas as tarefas automaticamente na agenda, e ele distribui tudo de forma equilibrada ao longo do seu tempo disponível.</p>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Preciso usar todos os dias?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Sim, e isso é parte do que faz o sistema funcionar. Ele foi feito para criar consistência, não uso ocasional.</p>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Isso realmente funciona para quem procrastina muito?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Sim. O sistema foi criado justamente para quem sabe o que precisa fazer, mas não consegue executar com consistência.</p>
+</div>
+</div>
+<!-- Item 9 -->
+<div class="accordion-item glass-card rounded-xl border border-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+<h4 class="font-headline font-bold text-lg text-on-surface group-hover:text-primary transition-colors">O que acontece quando eu atinjo uma meta?</h4>
+<span class="material-symbols-outlined text-primary toggle-icon transition-transform duration-300">expand_more</span>
+</div>
+<div class="accordion-content px-6">
+<p class="text-on-surface-variant leading-relaxed">Você evolui no sistema, ganha se da recompensas e pode definir novas metas, criando um ciclo contínuo de progresso.</p>
+</div>
+</div>
+</div>
+</div></section>
 </main>
 <!-- Footer -->
-<footer class="w-full py-12 border-t border-[#1f1f26] bg-[#0e0e13] flex flex-col items-center justify-center space-y-4 relative z-10">
-<div class="text-[#00F0FF] font-bold text-lg font-headline tracking-widest uppercase">SISTEMA_EVOLUÇÃO</div>
-<div class="flex gap-6">
-<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] text-gray-600 hover:text-[#00F0FF] transition-colors" href="#">TERMOS_DE_USO</a>
-<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] text-gray-600 hover:text-[#00F0FF] transition-colors" href="#">PRIVACIDADE</a>
-<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] text-gray-600 hover:text-[#00F0FF] transition-colors" href="#">SUPORTE_TECH</a>
-</div>
-<p class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] text-gray-600">
-            © 2024 SISTEMA_EVOLUÇÃO - PROTOCOLO_FINAL ACTIVATED
-        </p>
-</footer>
-</body></html>
+<footer class="bg-zinc-950 w-full py-12 border-t border-cyan-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 lg:px-24 gap-8 max-w-[1440px] mx-auto">
+</div></footer></body></html>
+
